@@ -3,6 +3,10 @@
 a {
   @apply text-indigo-700;
 }
+a:hover {
+@apply text-indigo-500 transition-all ease-in
+
+}
 
 
 @tailwind components;

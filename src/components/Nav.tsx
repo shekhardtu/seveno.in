@@ -59,7 +59,7 @@ const Nav = () => {
               </Link>
               {/* <!-- mobile nav --> */}
               <div className="flex flex-row items-center py-4 lg:py-0">
-                <div className="relative text-gray-900 hover:text-black block lg:hidden">
+                <div className="relative text-gray-900  block lg:hidden">
                   <button
                     type="button"
                     className=" block py-3 px-6 border-b-2 border-transparent"
@@ -105,8 +105,8 @@ const Nav = () => {
 
             <div className="flex flex-row justify-end">
               {/* <!-- nav menu --> */}
-              <ul className=" bg-white lg:bg-transparent w-full  text-center lg:text-left lg:flex lg:flex-row text-indigo-700 text-base items-center font-semibold">
-                <li className="relative hover:text-black">
+              <ul className="bg-white lg:bg-white  w-full  text-center lg:text-left lg:flex lg:flex-row text-indigo-700 text-base items-center font-semibold hover:text-indigo-200">
+                <li className="hover:text-red-700">
                   <Link
                     className=" block py-3 lg:py-2 px-6 border-b-2 border-transparent"
                     href="/"
@@ -114,7 +114,7 @@ const Nav = () => {
                     Home
                   </Link>
                 </li>
-                <li className="relative hover:text-black">
+                <li>
                   <Link
                     className="block py-3 lg:py-2 px-6 border-b-2 border-transparent"
                     href="/about"
@@ -122,7 +122,7 @@ const Nav = () => {
                     About
                   </Link>
                 </li>
-                <li className="group relative hover:text-black inline-block">
+                <li className="group relative  inline-block">
                   <a
                     className="block py-3 lg:py-2 px-6 border-b-2 border-transparent"
                     href="#portfolio"
@@ -130,11 +130,11 @@ const Nav = () => {
                     Services
                   </a>
 
-                  <ul className="absolute hidden text-gray-700 pt-1 group-hover:block z-50">
+                  <ul className="absolute hidden bg-white group-hover:block z-50 border-gray-300 border rounded  shadow-lg  transition ease-out duration-100">
                     {loanType.map((loan, index) => (
-                      <li key={index}>
+                      <li key={index} className="">
                         <a
-                          className="whitespace-nowrap bg-gray-200 hover:bg-gray-400 py-2 px-4 block"
+                          className="whitespace-nowrap bg-white  hover:bg-gray-200 hover:text-indigo-500 transition-all ease-in hover:rounded-none py-2 text-sm font-normal px-10 block rounded"
                           href={loan.link}
                         >
                           {loan.name}
@@ -143,7 +143,7 @@ const Nav = () => {
                     ))}
                   </ul>
                 </li>
-                <li className="relative hover:text-black">
+                <li>
                   <Link
                     className="block py-3 lg:py-2 px-6 border-b-2 border-transparent"
                     href="/payment"
@@ -151,7 +151,7 @@ const Nav = () => {
                     Payment
                   </Link>
                 </li>
-                <li className="relative hover:text-black">
+                <li>
                   <Link
                     className="block py-3 lg:py-2 px-6 border-b-2 border-transparent"
                     href="/terms-and-condition"
@@ -159,7 +159,7 @@ const Nav = () => {
                     Terms and Conditions
                   </Link>
                 </li>
-                <li className="relative hover:text-black">
+                <li>
                   <Link
                     className="block py-3 lg:py-2 px-6 border-b-2 border-transparent"
                     href="/contact"
