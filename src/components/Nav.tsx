@@ -11,35 +11,35 @@ const Nav = () => {
     },
     {
       name: 'Business Loan',
-      link: '/agriculture-loan',
+      link: '/business-loan',
     },
     {
       name: 'Complex Loan',
-      link: '/agriculture-loan',
+      link: '/complex-loan',
     },
     {
       name: 'Home Loan',
-      link: '/agriculture-loan',
+      link: '/home-loan',
     },
     {
       name: 'ITR Loan',
-      link: '/agriculture-loan',
+      link: '/itr-loan',
     },
     {
       name: 'Personal Loan',
-      link: '/agriculture-loan',
+      link: '/personal-loan',
     },
     {
       name: 'Property Loan',
-      link: '/agriculture-loan',
+      link: '/property-loan',
     },
     {
       name: 'Payslip Loan',
-      link: '/agriculture-loan',
+      link: '/payslip-loan',
     },
     {
       name: 'Shop Loan',
-      link: '/agriculture-loan',
+      link: '/shop-loan',
     },
   ];
   return (
