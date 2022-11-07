@@ -3,6 +3,44 @@ import { useRouter } from 'next/router';
 
 const Footer = () => {
   const router = useRouter();
+  const loanType = [
+    {
+      name: 'Agriculture Loan',
+      link: '/agriculture-loan',
+    },
+    {
+      name: 'Business Loan',
+      link: '/business-loan',
+    },
+    {
+      name: 'Complex Loan',
+      link: '/complex-loan',
+    },
+    {
+      name: 'Home Loan',
+      link: '/home-loan',
+    },
+    {
+      name: 'ITR Loan',
+      link: '/itr-loan',
+    },
+    {
+      name: 'Personal Loan',
+      link: '/personal-loan',
+    },
+    {
+      name: 'Property Loan',
+      link: '/property-loan',
+    },
+    {
+      name: 'Payslip Loan',
+      link: '/payslip-loan',
+    },
+    {
+      name: 'Shop Loan',
+      link: '/shop-loan',
+    },
+  ];
   return (
     <footer aria-label="Site Footer" className="bg-white">
       <div className="mx-auto max-w-screen-xl px-4 pt-16 pb-6 sm:px-6 lg:px-8 lg:pt-24">
@@ -21,7 +59,7 @@ const Footer = () => {
               priority basis.
             </p>
 
-            <ul className="mt-8 flex justify-center gap-6 sm:justify-start md:gap-8">
+            {/* <ul className="mt-8 flex justify-center gap-6 sm:justify-start md:gap-8">
               <li>
                 <Link
                   href="/"
@@ -86,7 +124,7 @@ const Footer = () => {
                   </svg>
                 </Link>
               </li>
-            </ul>
+            </ul> */}
           </div>
 
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4 lg:col-span-2">
@@ -95,81 +133,18 @@ const Footer = () => {
 
               <nav aria-label="Footer About Nav" className="mt-8">
                 <ul className="space-y-4 text-sm">
-                  <li>
-                    <Link
-                      className="text-gray-700 transition hover:text-gray-700/75"
-                      href="/"
-                    >
-                      Agricultural Loan
-                    </Link>
-                  </li>
-
-                  <li>
-                    <Link
-                      className="text-gray-700 transition hover:text-gray-700/75"
-                      href="/"
-                    >
-                      Business Loan
-                    </Link>
-                  </li>
-
-                  <li>
-                    <Link
-                      className="text-gray-700 transition hover:text-gray-700/75"
-                      href="/"
-                    >
-                      Complex Loan
-                    </Link>
-                  </li>
-
-                  <li>
-                    <Link
-                      className="text-gray-700 transition hover:text-gray-700/75"
-                      href="/"
-                    >
-                      Home Loan
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      className="text-gray-700 transition hover:text-gray-700/75"
-                      href="/"
-                    >
-                      ITR Loan
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      className="text-gray-700 transition hover:text-gray-700/75"
-                      href="/"
-                    >
-                      Payslip Loan
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      className="text-gray-700 transition hover:text-gray-700/75"
-                      href="/"
-                    >
-                      Personal Loan
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      className="text-gray-700 transition hover:text-gray-700/75"
-                      href="/"
-                    >
-                      Property Loan
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      className="text-gray-700 transition hover:text-gray-700/75"
-                      href="/"
-                    >
-                      Shop Loan
-                    </Link>
-                  </li>
+                  {loanType.map((items: any, index) => {
+                    return (
+                      <li key={index}>
+                        <Link
+                          className="text-gray-700 transition hover:text-gray-700/75"
+                          href={items.link}
+                        >
+                          {items.name}
+                        </Link>
+                      </li>
+                    );
+                  })}
                 </ul>
               </nav>
             </div>
@@ -191,7 +166,7 @@ const Footer = () => {
                   <li>
                     <Link
                       className="text-gray-700 transition hover:text-gray-700/75"
-                      href="/"
+                      href="/about"
                     >
                       About Us
                     </Link>
@@ -200,7 +175,7 @@ const Footer = () => {
                   <li>
                     <Link
                       className="text-gray-700 transition hover:text-gray-700/75"
-                      href="/"
+                      href="/payment"
                     >
                       Payment
                     </Link>
@@ -209,7 +184,7 @@ const Footer = () => {
                   <li>
                     <Link
                       className="text-gray-700 transition hover:text-gray-700/75"
-                      href="/"
+                      href="/emi"
                     >
                       EMI Calculator
                     </Link>
@@ -219,7 +194,7 @@ const Footer = () => {
             </div>
 
             <div className="text-center sm:text-left">
-              <p className="text-lg font-medium text-gray-900">Helpful Links</p>
+              {/* <p className="text-lg font-medium text-gray-900">Helpful Links</p>
 
               <nav aria-label="Footer Helpful Nav" className="mt-8">
                 <ul className="space-y-4 text-sm">
@@ -257,7 +232,7 @@ const Footer = () => {
                     </Link>
                   </li>
                 </ul>
-              </nav>
+              </nav> */}
             </div>
 
             <div className="text-center sm:text-left">
@@ -336,7 +311,7 @@ const Footer = () => {
                   </svg>
 
                   <address className="-mt-0.5 not-italic text-gray-700">
-                    217 DLF IT Park Chandigarh 160101
+                    217, 2nd Floor, DLF Building, IT Park, Chandigarh
                   </address>
                 </li>
               </ul>

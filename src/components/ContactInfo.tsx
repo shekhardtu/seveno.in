@@ -1,10 +1,8 @@
-import Link from 'next/link';
-
 const ContactInfo = () => (
-  <div className="text-gray-900 bg-gray-50">
+  <div className="text-gray-900 bg-gray-50 hidden sm:block">
     <div className="max-w-screen-xl px-4 mx-auto grid grid-cols-2">
-      <div className="grid text-sm py-3">
-        <div className="flex flex-row gap-8">
+      <div className="grid col-span-2 md:col-span-2 text-sm py-3">
+        <div className="flex flex-row justify-between gap-8">
           <div className="flex items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -39,7 +37,7 @@ const ContactInfo = () => (
             </svg>
             shreevaishnof@gmail.com
           </div>
-          <div className="flex items-center">
+          <div className="hidden md:flex lg:flex items-center">
             {' '}
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -60,12 +58,12 @@ const ContactInfo = () => (
                 d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
               />
             </svg>
-            217, DLF IT Park, Chandigarh
+            217, 2nd Floor, DLF Building, IT Park, Chandigarh
           </div>
         </div>
       </div>
       <div className="grid">
-        <ul className="flex items-center lg:justify-end gap-6 sm:justify-start md:gap-8">
+        {/* <ul className="flex items-center lg:justify-end gap-6 sm:justify-start md:gap-8">
           <li>
             <Link
               href="/"
@@ -130,7 +128,7 @@ const ContactInfo = () => (
               </svg>
             </Link>
           </li>
-        </ul>
+        </ul> */}
       </div>
     </div>
   </div>

@@ -28,14 +28,14 @@ const Banner = () => {
 
           <div className="mt-8 flex flex-wrap gap-4 text-center">
             <Link
-              href="#"
+              href="/emi"
               className="block w-full rounded bg-indigo-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-indigo-700 focus:outline-none focus:ring active:bg-indigo-500 sm:w-auto"
             >
               EMI Calculator
             </Link>
 
             <Link
-              href="#"
+              href="/about"
               className="block w-full rounded bg-white px-12 py-3 text-sm font-medium text-indigo-600 shadow hover:text-indigo-700 focus:outline-none focus:ring active:text-indigo-500 sm:w-auto"
             >
               About Us

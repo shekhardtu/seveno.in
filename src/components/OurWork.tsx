@@ -8,55 +8,55 @@ const Ourwork = () => {
       name: 'Agriculture Loan',
       link: '/agriculture-loan',
       img: 'agriculture-loan.jpeg',
-      w: 'col-span-1',
+      w: 'col-span-2 md:col-span-1',
     },
     {
       name: 'Business Loan',
       link: '/business-loan',
       img: 'business-loan.jpeg',
-      w: 'col-span-1',
+      w: 'col-span-2 md:col-span-1',
     },
     {
       name: 'Complex Loan',
-      link: '/agriculture-loan',
+      link: '/complex-loan',
       img: 'complex-loan.jpeg',
-      w: 'col-span-2',
+      w: 'col-span-2 md:col-span-2',
     },
 
     {
       name: 'Home Loan',
-      link: '/agriculture-loan',
+      link: '/home-loan',
       img: 'home-loan.jpeg',
-      w: 'col-span-1',
+      w: 'col-span-1 md:col-span-2',
     },
     {
       name: 'ITR Loan',
-      link: '/agriculture-loan',
+      link: '/itr-loan',
       img: 'itr-loan.jpeg',
       w: 'col-span-2',
     },
     {
       name: 'Payslip Loan',
-      link: '/agriculture-loan',
+      link: '/payslip-loan',
       img: 'payslip-loan.jpeg',
       w: 'col-span-1',
     },
     {
       name: 'Personal Loan',
-      link: '/agriculture-loan',
+      link: '/personal-loan',
       img: 'personal-loan.jpeg',
       w: 'col-span-2',
     },
     {
       name: 'Property Loan',
-      link: '/agriculture-loan',
+      link: '/property-loan',
       img: 'property-loan.jpeg',
       w: 'col-span-1',
     },
 
     {
       name: 'Shop Loan',
-      link: '/agriculture-loan',
+      link: '/shop-loan',
       img: 'shop-loan.jpeg',
       w: 'col-span-1',
     },
@@ -86,14 +86,14 @@ const Ourwork = () => {
         {/* <!-- End heading --> */}
       </div>
 
-      <div className="grid grid-flow-row-dense grid-cols-4 grid-rows-3 gap-4">
+      <div className="grid lg:grid-flow-row-dense grid-cols-2 lg:grid-cols-4 grid-rows-3 gap-4">
         {loanType.map((item, index) => {
-          const figureClass = classNames(`group  lg:${item.w}`);
+          const figureClass = classNames(`group lg:${item.w}`);
           return (
             <figure className={figureClass} data-wow-duration="1s" key={index}>
-              <div className="relative overflow-hidden cursor-pointer mb-6  h-96 ">
+              <div className="h-full sm:h-auto relative overflow-hidden cursor-pointer mb-6  lg:h-96">
                 <a
-                  href="src/img/dummy/img1.jpg"
+                  href={item.link}
                   data-gallery="gallery1"
                   data-glightbox="title: My title; description: This is a wider card with supporting text below as a natural lead-in to additional content"
                 >

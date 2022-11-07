@@ -1,8 +1,15 @@
 // <!-- ========== { HEADER }==========  -->
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import React, { useState } from 'react';
 
 const Nav = () => {
+  const [show, setShow] = useState(false);
+
+  // const toggleMobileMenu = () => {
+  //   console.log(showMenu);
+
+  // };
   const router = useRouter();
   const loanType = [
     {
@@ -63,47 +70,56 @@ const Nav = () => {
                   <button
                     type="button"
                     className=" block py-3 px-6 border-b-2 border-transparent"
+                    onClick={() => setShow(!show)}
                   >
                     <span className="sr-only">Mobile menu</span>
-                    <svg
-                      className=" h-8 w-8"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M4 6h16M4 12h16M4 18h16"
-                      ></path>
-                    </svg>
-
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      className=" h-8 w-8"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"
-                      />
-                      <path
-                        fillRule="evenodd"
-                        d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"
-                      />
-                    </svg>
+                    {show ? (
+                      <svg
+                        className="h-8 w-8"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M4 6h16M4 12h16M4 18h16"
+                        ></path>
+                        Show
+                      </svg>
+                    ) : (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        className=" h-8 w-8"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"
+                        />
+                        <path
+                          fillRule="evenodd"
+                          d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"
+                        />
+                        Hide
+                      </svg>
+                    )}
                   </button>
                 </div>
               </div>
             </div>
 
-            <div className="flex flex-row justify-end">
+            <div
+              className={`lg:flex lg:flex-row justify-end ${
+                show ? 'hidden' : 'flex'
+              }`}
+            >
               {/* <!-- nav menu --> */}
               <ul className="bg-white lg:bg-white  w-full  text-center lg:text-left lg:flex lg:flex-row text-indigo-700 text-base items-center font-semibold hover:text-indigo-200">
                 <li className="hover:text-red-700">

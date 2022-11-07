@@ -66,7 +66,8 @@ const BusinessLoan = () => {
     '2 Stamp Paper of Rs.50/- in favor of the Applicant.',
     'Bank Statement of last 3 months',
     'File Charge Rs. 3150/-.',
-    'Papers of Property (Khasra, Khaitoni, Registry, Bainama).',
+    'GST',
+    'Past 2 year ITR',
   ];
   const gurantorPoints = [
     'Government Guarantor',
@@ -75,7 +76,7 @@ const BusinessLoan = () => {
   ];
   const validIdProofPoints = [
     'PAN Card',
-    ' Voter Card',
+    'Voter Card',
     'Driving License',
     ' Job Certificate (at present) issued from company in which Applicant Working',
     'College Identity Card Etc.',

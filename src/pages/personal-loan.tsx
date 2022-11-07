@@ -66,7 +66,6 @@ const PersonalLoan = () => {
     '2 Stamp Paper of Rs.50/- in favor of the Applicant.',
     'Bank Statement of last 3 months',
     'File Charge Rs. 3150/-.',
-    'Papers of Property (Khasra, Khaitoni, Registry, Bainama).',
   ];
   const gurantorPoints = [
     'Government Guarantor',

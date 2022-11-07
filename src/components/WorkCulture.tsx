@@ -3,14 +3,14 @@ import { useRouter } from 'next/router';
 const WorkCulture = () => {
   const router = useRouter();
   return (
-    <section className="border-t border-gray-400 clear-both overflow-hidden">
+    <section className="border-t border-gray-400 clear-both overflow-hidden p-8 lg:p-0">
       <div className="lg:grid  lg:grid-cols-12">
         <main
           aria-label="Main"
           className="flex flex-col  justify-center sm:px-0 lg:col-span-7 lg:py-10 lg:px-16 xl:col-span-6"
         >
-          <div className="flex justify-start lg:relative lg:block lg:py-2 text-indigo-600">
-            <div className=" uppercase text-sm font-bold text-orange-400 mb-4">
+          <div className="flex flex-col lg:flex-row justify-start lg:relative lg:block lg:py-2 text-indigo-600">
+            <div className="uppercase text-sm font-bold text-orange-400 mb-4">
               Our Philosophy
             </div>
             <h2 className="text-2xl font-bold  sm:text-3xl md:text-4xl">
