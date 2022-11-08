@@ -1,11 +1,13 @@
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 import { Main } from '@/templates/Main';
 
 const Contact = () => {
+  const printRef = useRef<HTMLDivElement>(null);
+
   const [firstName, setFirstName]: [any, any] = useState('Raju');
   const [lastName, setLastName]: [any, any] = useState('Kumar');
   const [designation, setDesignation]: [any, any] = useState('Manager');
@@ -19,8 +21,6 @@ const Contact = () => {
       e.preventDefault();
     }
   };
-
-  const printRef = React.useRef();
 
   const handleDownloadPdf = async () => {
     const element: any = printRef.current;
