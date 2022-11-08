@@ -8,26 +8,26 @@ const Ourwork = () => {
       name: 'Agriculture Loan',
       link: '/agriculture-loan',
       img: 'agriculture-loan.jpeg',
-      w: 'col-span-2 md:col-span-1',
+      w: 'col-span-2 lg:col-span-1',
     },
     {
       name: 'Business Loan',
       link: '/business-loan',
       img: 'business-loan.jpeg',
-      w: 'col-span-2 md:col-span-1',
+      w: 'col-span-2 lg:col-span-1',
     },
     {
       name: 'Complex Loan',
       link: '/complex-loan',
       img: 'complex-loan.jpeg',
-      w: 'col-span-2 md:col-span-2',
+      w: 'col-span-2 lg:col-span-2',
     },
 
     {
       name: 'Home Loan',
       link: '/home-loan',
       img: 'home-loan.jpeg',
-      w: 'col-span-1 md:col-span-2',
+      w: 'col-span-1 lg:col-span-2',
     },
     {
       name: 'ITR Loan',

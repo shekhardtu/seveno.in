@@ -4,8 +4,8 @@ import { Main } from '@/templates/Main';
 
 const ContactWidget = () => {
   return (
-    <div className="grid grid-cols-3 gap-8 justify-between">
-      <div className="flex col-span-1 justify-center items-center px-16 py-8 border-r border-gray-400">
+    <div className="grid grid-cols-1 lg:grid-cols-3 justify-between">
+      <div className="flex col-span-1 justify-center items-center px-16 py-8 border-r border-b border-gray-400 lg:border-b-0">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -22,7 +22,7 @@ const ContactWidget = () => {
         </svg>
         +91 9899439814
       </div>
-      <div className="flex col-span-1 justify-center items-center border-r border-gray-400">
+      <div className="flex col-span-1 justify-center items-center border-r border-gray-400 px-16 py-8 border-b lg:border-b-0">
         {' '}
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -39,7 +39,7 @@ const ContactWidget = () => {
         </svg>
         shreevaishnof@gmail.com
       </div>
-      <div className="flex col-span-1 justify-center items-center">
+      <div className="flex col-span-1 justify-center items-center px-16 py-8">
         {' '}
         <svg
           xmlns="http://www.w3.org/2000/svg"

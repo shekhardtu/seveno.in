@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 const PaymentQR = () => {
   const router = useRouter();
   return (
-    <section className="rounded-3xl shadow-2xl w-1/2 flex my-16 mx-auto">
+    <section className="rounded-3xl shadow-2xl w-11/12 lg:w-1/2 flex my-16 mx-auto">
       <div className="flex justify-center">
         <div className="p-8 text-center sm:p-12 flex flex-col justify-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-indigo-500">

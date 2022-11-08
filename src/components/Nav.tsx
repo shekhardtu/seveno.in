@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 
 const Nav = () => {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
 
   // const toggleMobileMenu = () => {
   //   console.log(showMenu);
