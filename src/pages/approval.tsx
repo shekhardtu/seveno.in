@@ -1,95 +1,163 @@
-import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
 import { useRouter } from 'next/router';
 import React, { useRef, useState } from 'react';
 
+import ApprovalTemplate from '@/components/ApprovalTemplate';
 import { Main } from '@/templates/Main';
 
 const Contact = () => {
-  const printRef = useRef<HTMLDivElement>(null);
+  const printRef = useRef<any>(null);
+  const router = useRouter();
+  const [applicantName, setApplicantName]: [any, any] = useState('Raju');
+  const [post, setPost]: [any, any] = useState('Manager');
+  const [fatherName, setFatherName]: [any, any] = useState('Kumar');
 
-  const [firstName, setFirstName]: [any, any] = useState('Raju');
-  const [lastName, setLastName]: [any, any] = useState('Kumar');
-  const [designation, setDesignation]: [any, any] = useState('Manager');
   const [mobileNumber, setMobileNumber]: [any, any] = useState('8899832389');
-  const [idNumber, setIdNumber]: [any, any] = useState('165500');
-  const [location, setLocation]: [any, any] = useState('Delhi');
+  const [minimumTarget, setMinimumTarget]: [any, any] = useState('1');
+  const [maximumTarget, setMaximumTarget]: [any, any] = useState('5');
+  const [incentive, setIncentive]: [any, any] = useState(20);
+  const [salary, setSalary]: [any, any] = useState(20000);
+  const [codeNumber, setCodeNumber]: [any, any] = useState('BBS 790');
+
+  const [filledBy, setFilledBy]: [any, any] = useState('Rahul');
+  const [agentContact, setAgentContact]: [any, any] = useState('8899832389');
+
   const [imagePath, setImagePath]: [any, any] = useState(null);
+  const [addressLine1, setAddressLine1]: [any, any] = useState('Gokal Puri');
+  const [addressLine2, setAddressLine2]: [any, any] = useState('Delhi 110094');
+  const [location, setLocation]: [any, any] = useState('Mumbai');
 
   const onlyAlphabets = (e: any) => {
-    if (!/[a-z,A-Z]/.test(e.key)) {
+    if (!/[a-z,\s,A-Z]/.test(e.key)) {
       e.preventDefault();
     }
   };
 
-  const handleDownloadPdf = async () => {
-    const element: any = printRef.current;
-    const canvas = await html2canvas(element);
-    const data = canvas.toDataURL('image/png');
-
-    // eslint-disable-next-line new-cap
-    const pdf = new jsPDF({
-      orientation: 'portrait',
-      unit: 'in',
-      format: [10, 4],
-    });
-    const imgProperties = pdf.getImageProperties(data);
-    const pdfWidth = pdf.internal.pageSize.getWidth();
-    const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
-
-    pdf.addImage(data, 'PNG', 0, 0, pdfWidth, pdfHeight);
-    pdf.save('print.pdf');
+  const onlyInteger = (e: any) => {
+    if (!/[0-9]/.test(e.key)) {
+      e.preventDefault();
+    }
   };
-  const router = useRouter();
+
+  function addWaterMark(doc: any) {
+    const img = new Image();
+    img.src = `${router.basePath}/assets/images/logo_op.png`;
+
+    // doc.addImage(imgData, 'PNG', 40, 40, 75, 75);
+    doc.setTextColor(150);
+    doc.addImage(img, 'png', 250, 450, 320, 76, 'watermark', 'NONE', 20);
+
+    return doc;
+  }
+  const handleDownloadPdf = () => {
+    // eslint-disable-next-line new-cap
+    const doc = new jsPDF({
+      format: 'a3',
+      unit: 'px',
+      putOnlyUsedFonts: true,
+      floatPrecision: 16,
+    });
+
+    // Adding the fonts
+    // doc.setFont('Anton-Regular', 'normal');
+
+    doc.html(printRef.current, {
+      // eslint-disable-next-line @typescript-eslint/no-shadow
+      margin: [200, 0, 40, 20],
+      autoPaging: 'text',
+
+      async callback(pdf) {
+        // save the document as a PDF with name of Memes
+        const totalPages = pdf.internal.pages.length - 1;
+        const img = new Image();
+        img.src = `${router.basePath}/assets/images/header.png`;
+
+        // eslint-disable-next-line no-plusplus
+        for (let i = 1; i <= totalPages; i++) {
+          pdf.setPage(i);
+
+          pdf.setFontSize(10);
+          // pdf.setTextColor(150);
+          pdf.text(
+            `Page ${i} of ${totalPages}`,
+            pdf.internal.pageSize.getWidth() - 100,
+            pdf.internal.pageSize.getHeight() - 30
+          );
+          pdf.addImage(img, 'png', 40, 0, 554, 182);
+          addWaterMark(pdf);
+        }
+        pdf.save('JoiningLetter');
+      },
+    });
+  };
+
+  // const router = useRouter();
   return (
     <Main>
       <section>
         <div className="mx-auto max-w-screen-2xl p-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:h-screen lg:grid-cols-2">
+          <div className="grid grid-cols-1 lg:grid-cols-2">
             <div className="relative flex items-center bg-gray-100">
               <span className="hidden lg:absolute lg:inset-y-0 lg:-left-16 lg:block lg:w-16 lg:bg-gray-100"></span>
 
               <div className=" py-4 px-8 sm:p-16 lg:p-8">
                 <h2 className="text-2xl font-bold sm:text-3xl text-indigo-500">
-                  Create Id Card
+                  Joining Form
                 </h2>
 
                 <form action="#" className="mt-4 grid grid-cols-6 gap-6">
-                  <div className="col-span-6 sm:col-span-3">
+                  <div className="col-span-6">
                     <label
-                      htmlFor="firstName"
+                      htmlFor="codeNumber"
                       className="block text-sm font-medium text-gray-700"
                     >
-                      Applicant Name (Required)
+                      Code No. (Required)
                     </label>
 
                     <input
                       type="text"
-                      id="firstName"
-                      name="firstName"
-                      onChange={(e) => setFirstName(e.target.value)}
+                      id="codeNumber"
+                      name="codeNumber"
+                      onChange={(e) => setCodeNumber(e.target.value)}
+                      className="mt-1 w-full rounded-md border-gray-500 bg-white text-sm text-gray-700 shadow-sm"
+                    />
+                  </div>
+                  <div className="col-span-6 sm:col-span-3">
+                    <label
+                      htmlFor="applicantName"
+                      className="block text-sm font-medium text-gray-700"
+                    >
+                      Candidate Name (Required)
+                    </label>
+
+                    <input
+                      type="text"
+                      id="applicantName"
+                      name="applicantName"
+                      onChange={(e) => setApplicantName(e.target.value)}
                       onKeyPress={onlyAlphabets}
                       className="mt-1 w-full rounded-md border-gray-500 bg-white text-sm text-gray-700 shadow-sm"
                     />
                   </div>
                   <div className="col-span-6 sm:col-span-3">
                     <label
-                      htmlFor="lastName"
+                      htmlFor="post"
                       className="block text-sm font-medium text-gray-700"
                     >
-                      Father&apos;s Name (Required)
+                      Post (Required)
                     </label>
 
                     <input
                       type="text"
-                      id="lastName"
-                      name="lastName"
-                      onChange={(e) => setLastName(e.target.value)}
+                      id="post"
+                      name="post"
+                      onChange={(e) => setPost(e.target.value)}
                       onKeyPress={onlyAlphabets}
                       className="mt-1 w-full rounded-md border-gray-500 bg-white text-sm text-gray-700 shadow-sm"
                     />
                   </div>
-                  <div className="col-span-6 sm:col-span-3">
+
+                  <div className="col-span-6">
                     <label className="block text-sm font-medium text-gray-700">
                       Upload profile pic (file)
                     </label>
@@ -106,38 +174,75 @@ const Contact = () => {
 
                   <div className="col-span-6 sm:col-span-3">
                     <label
-                      htmlFor="designation"
+                      htmlFor="minimumTarget"
                       className="block text-sm font-medium text-gray-700"
                     >
-                      Loan Amount (Required)
+                      Minimum Target (Required)
                     </label>
 
                     <input
                       type="text"
-                      id="designation"
-                      name="designation"
-                      onChange={(e) => setDesignation(e.target.value)}
-                      className="mt-1 w-full rounded-md border-gray-500 bg-white text-sm text-gray-700 shadow-sm capitalize"
+                      id="minimumTarget"
+                      name="minimumTarget"
+                      onChange={(e) => setMinimumTarget(e.target.value)}
+                      onKeyPress={onlyInteger}
+                      className="mt-1 w-full rounded-md border-gray-500 bg-white text-sm text-gray-700 shadow-sm"
                     />
                   </div>
-                  <div className="col-span-6 sm:col-span-3 ">
+                  <div className="col-span-6 sm:col-span-3">
                     <label
-                      htmlFor="designation"
+                      htmlFor="maximumTarget"
                       className="block text-sm font-medium text-gray-700"
                     >
-                      Loan Duration (Required)
+                      Maximum Target (Required)
                     </label>
 
                     <input
                       type="text"
-                      id="designation"
-                      name="designation"
-                      onChange={(e) => setDesignation(e.target.value)}
-                      className="mt-1 w-full rounded-md border-gray-500 bg-white text-sm text-gray-700 shadow-sm capitalize"
+                      id="maximumTarget"
+                      name="maximumTarget"
+                      onChange={(e) => setMaximumTarget(e.target.value)}
+                      onKeyPress={onlyInteger}
+                      className="mt-1 w-full rounded-md border-gray-500 bg-white text-sm text-gray-700 shadow-sm"
                     />
                   </div>
 
                   <div className="col-span-6 sm:col-span-3">
+                    <label
+                      htmlFor="incentive"
+                      className="block text-sm font-medium text-gray-700"
+                    >
+                      Incentive (Required)
+                    </label>
+
+                    <input
+                      type="text"
+                      id="incentive"
+                      name="incentive"
+                      onChange={(e) => setIncentive(e.target.value)}
+                      onKeyPress={onlyInteger}
+                      className="mt-1 w-full rounded-md border-gray-500 bg-white text-sm text-gray-700 shadow-sm"
+                    />
+                  </div>
+                  <div className="col-span-6 sm:col-span-3">
+                    <label
+                      htmlFor="location"
+                      className="block text-sm font-medium text-gray-700"
+                    >
+                      Location (Required)
+                    </label>
+
+                    <input
+                      type="text"
+                      id="location"
+                      name="location"
+                      onChange={(e) => setLocation(e.target.value)}
+                      onKeyPress={onlyAlphabets}
+                      className="mt-1 w-full rounded-md border-gray-500 bg-white text-sm text-gray-700 shadow-sm"
+                    />
+                  </div>
+
+                  <div className="col-span-6">
                     <label
                       htmlFor="mobileNumber"
                       className="block text-sm font-medium text-gray-700"
@@ -150,47 +255,113 @@ const Contact = () => {
                       id="mobileNumber"
                       name="mobileNumber"
                       onChange={(e) => setMobileNumber(e.target.value)}
-                      onKeyPress={(event) => {
-                        if (!/[0-9]/.test(event.key)) {
-                          event.preventDefault();
-                        }
-                      }}
+                      onKeyPress={onlyInteger}
                       maxLength={10}
+                      className="mt-1 w-full rounded-md border-gray-500 bg-white text-sm text-gray-700 shadow-sm"
+                    />
+                  </div>
+
+                  <div className="col-span-6 sm:col-span-3">
+                    <label
+                      htmlFor="fatherName"
+                      className="block text-sm font-medium text-gray-700"
+                    >
+                      Father&apos;s Name (Required)
+                    </label>
+
+                    <input
+                      type="text"
+                      id="fatherName"
+                      name="fatherName"
+                      onChange={(e) => setFatherName(e.target.value)}
+                      onKeyPress={onlyAlphabets}
                       className="mt-1 w-full rounded-md border-gray-500 bg-white text-sm text-gray-700 shadow-sm"
                     />
                   </div>
                   <div className="col-span-6 sm:col-span-3">
                     <label
-                      htmlFor="idNumber"
+                      htmlFor="salary"
                       className="block text-sm font-medium text-gray-700"
                     >
-                      Filled by (Required)
+                      Salary (Required)
                     </label>
 
                     <input
                       type="text"
-                      id="idNumber"
-                      name="idNumber"
-                      onChange={(e) => setIdNumber(e.target.value)}
+                      id="salary"
+                      name="salary"
+                      onChange={(e) => setSalary(e.target.value)}
+                      className="mt-1 w-full rounded-md border-gray-500 bg-white text-sm text-gray-700 shadow-sm"
+                    />
+                  </div>
+
+                  <div className="col-span-6 sm:col-span-3">
+                    <label
+                      htmlFor="filledBy"
+                      className="block text-sm font-medium text-gray-700"
+                    >
+                      Reference (Required)
+                    </label>
+
+                    <input
+                      type="text"
+                      id="filledBy"
+                      name="filledBy"
+                      onChange={(e) => setFilledBy(e.target.value)}
                       className="mt-1 w-full rounded-md border-gray-500  text-sm text-gray-700 shadow-sm  bg-white
                         "
                     />
                   </div>
                   <div className="col-span-6 sm:col-span-3">
                     <label
-                      htmlFor="location"
+                      htmlFor="agentContact"
                       className="block text-sm font-medium text-gray-700"
                     >
-                      Agent Contact (Required)
+                      Reference Contact (Required)
                     </label>
 
                     <input
                       type="text"
-                      id="location"
-                      name="location"
-                      onChange={(e) => setLocation(e.target.value)}
+                      id="agentContact"
+                      name="agentContact"
+                      onKeyPress={onlyInteger}
+                      maxLength={10}
+                      onChange={(e) => setAgentContact(e.target.value)}
                       className="mt-1 w-full rounded-md border-gray-500 bg-white
                         text-sm text-gray-700 shadow-sm"
+                    />
+                  </div>
+
+                  <div className="col-span-6 sm:col-span-3">
+                    <label
+                      htmlFor="addressLine1"
+                      className="block text-sm font-medium text-gray-700"
+                    >
+                      Address line 1 (Required)
+                    </label>
+
+                    <input
+                      type="text"
+                      id="addressLine1"
+                      name="addressLine1"
+                      onChange={(e) => setAddressLine1(e.target.value)}
+                      className="mt-1 w-full rounded-md border-gray-500 bg-white text-sm text-gray-700 shadow-sm capitalize"
+                    />
+                  </div>
+                  <div className="col-span-6 sm:col-span-3 ">
+                    <label
+                      htmlFor="addressLine2"
+                      className="block text-sm font-medium text-gray-700"
+                    >
+                      Address line 2 (Required)
+                    </label>
+
+                    <input
+                      type="text"
+                      id="addressLine2"
+                      name="addressLine2"
+                      onChange={(e) => setAddressLine2(e.target.value)}
+                      className="mt-1 w-full rounded-md border-gray-500 bg-white text-sm text-gray-700 shadow-sm capitalize"
                     />
                   </div>
                   <div className="col-span-6 sm:flex sm:items-center sm:gap-4">
@@ -207,65 +378,37 @@ const Contact = () => {
                 </form>
               </div>
             </div>
-            <div className="relative z-10 lg:py-16">
-              <div className="flex-col items-center relative flex">
-                <div
-                  ref={printRef}
-                  className="h-auto flex flex-col justify-center items-center  border-2 border-gray-600 w-80 p-4 rounded-md"
-                >
-                  <div className="h-1/5 relative border-b border-gray-500 m-3 pb-3">
-                    <img
-                      src={`${router.basePath}/assets/images/logo2.png`}
-                      alt=""
-                    />
-                  </div>
-                  <div className="h-2/5  relative mt-2">
-                    {imagePath && (
-                      <img
-                        alt="not found"
-                        src={URL.createObjectURL(imagePath)}
-                        className="rounded-full w-44 h-44 border-2 border-gray-600 p-1"
-                      />
-                    )}
-                  </div>
-                  <div className="h-1/5 relative my-4 font-bold">
-                    {firstName} {lastName}{' '}
-                  </div>
-                  <div className="h-auto relative font-semibold text-base my-2">
-                    <div className="">
-                      <span className="inline-block w-40">Designation </span>:
-                      {designation}
-                    </div>
-                    <div className="">
-                      <span className="inline-block w-40">Mobile Number </span>:
-                      {mobileNumber}
-                    </div>
-                    <div className="">
-                      <span className="inline-block w-40">Id Number </span>:
-                      {idNumber}
-                    </div>
-                    <div className="">
-                      <span className="inline-block w-40">Location </span>:
-                      {location}
-                    </div>
-                  </div>
-                  <div className="relative text-sm">
-                    www.seveno.in
-                    <img
-                      alt="stamp"
-                      src={`${router.basePath}/assets/images/stamp.png`}
-                      className="w-16 h-16 absolute -right-20 -top-9"
-                    />
+            <div className="z-10 lg:py-8  relative">
+              <div className="flex-col items-center flex ">
+                <div className="overflow-y-auto  border border-gray-600 sticky top-60 p-8">
+                  <div ref={printRef} className="p-0 m-0">
+                    <ApprovalTemplate
+                      applicantName={applicantName}
+                      fatherName={fatherName}
+                      post={post}
+                      mobileNumber={mobileNumber}
+                      mininmumTarget={minimumTarget}
+                      maximumTarget={maximumTarget}
+                      filledBy={filledBy}
+                      agentContact={agentContact}
+                      imagePath={imagePath}
+                      incentive={incentive}
+                      salary={salary}
+                      location={location}
+                      addressLine1={addressLine1}
+                      addressLine2={addressLine2}
+                      codeNumber={codeNumber}
+                    ></ApprovalTemplate>
                   </div>
                 </div>
-                <div className="col-span-6 sm:flex sm:items-center sm:gap-4 mt-8">
+                {/* <div className="col-span-6 sm:flex sm:items-center sm:gap-4 mt-8">
                   <button
                     onClick={handleDownloadPdf}
                     className="inline-block shrink-0 rounded-md border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-blue-500"
                   >
                     Print PDF
                   </button>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
