@@ -15,10 +15,11 @@ const Main = (props: IMainProps) => {
       <div className="w-full  text-gray-700 antialiased ">
         <ContactInfo />
         <Nav />
-        <div className="w-full mx-auto">
+        <div className="w-full mx-auto clear-both">
           <div className=" text-xl">{props.children}</div>
         </div>
-        <div className="border-t border-gray-300 py-8 text-center text-sm"></div>
+        <div className="border-t border-gray-300  text-center text-sm"></div>
+        <div className="clear-both m-1"></div>
         <Footer />
         <ScrollButton />
       </div>

@@ -55,8 +55,8 @@ const Footer = () => {
             </div>
 
             <p className="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500 sm:mx-0 sm:max-w-xs sm:text-left">
-              We believe in fair dealing and prompt dispersement of founds on
-              priority basis.
+              We Shree Vaishno Finance Services PVT LTD believe in fair dealing
+              and prompt dispersement of founds on priority basis.
             </p>
 
             {/* <ul className="mt-8 flex justify-center gap-6 sm:justify-start md:gap-8">

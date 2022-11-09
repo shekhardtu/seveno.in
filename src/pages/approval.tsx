@@ -60,7 +60,7 @@ const Contact = () => {
                       htmlFor="firstName"
                       className="block text-sm font-medium text-gray-700"
                     >
-                      First Name
+                      Applicant Name (Required)
                     </label>
 
                     <input
@@ -77,7 +77,7 @@ const Contact = () => {
                       htmlFor="lastName"
                       className="block text-sm font-medium text-gray-700"
                     >
-                      Last Name
+                      Father&apos;s Name (Required)
                     </label>
 
                     <input
@@ -104,12 +104,28 @@ const Contact = () => {
                     />
                   </div>
 
-                  <div className="col-span-6 ">
+                  <div className="col-span-6 sm:col-span-3">
                     <label
                       htmlFor="designation"
                       className="block text-sm font-medium text-gray-700"
                     >
-                      Designation
+                      Loan Amount (Required)
+                    </label>
+
+                    <input
+                      type="text"
+                      id="designation"
+                      name="designation"
+                      onChange={(e) => setDesignation(e.target.value)}
+                      className="mt-1 w-full rounded-md border-gray-500 bg-white text-sm text-gray-700 shadow-sm capitalize"
+                    />
+                  </div>
+                  <div className="col-span-6 sm:col-span-3 ">
+                    <label
+                      htmlFor="designation"
+                      className="block text-sm font-medium text-gray-700"
+                    >
+                      Loan Duration (Required)
                     </label>
 
                     <input
@@ -148,7 +164,7 @@ const Contact = () => {
                       htmlFor="idNumber"
                       className="block text-sm font-medium text-gray-700"
                     >
-                      Id Number
+                      Filled by (Required)
                     </label>
 
                     <input
@@ -160,12 +176,12 @@ const Contact = () => {
                         "
                     />
                   </div>
-                  <div className="col-span-6">
+                  <div className="col-span-6 sm:col-span-3">
                     <label
                       htmlFor="location"
                       className="block text-sm font-medium text-gray-700"
                     >
-                      Location
+                      Agent Contact (Required)
                     </label>
 
                     <input
@@ -217,21 +233,19 @@ const Contact = () => {
                   </div>
                   <div className="h-auto relative font-semibold text-base my-2">
                     <div className="">
-                      <span className="inline-block w-40">Designation : </span>
+                      <span className="inline-block w-40">Designation </span>:
                       {designation}
                     </div>
                     <div className="">
-                      <span className="inline-block w-40">
-                        Mobile Number :{' '}
-                      </span>
+                      <span className="inline-block w-40">Mobile Number </span>:
                       {mobileNumber}
                     </div>
                     <div className="">
-                      <span className="inline-block w-40">Id Number : </span>
+                      <span className="inline-block w-40">Id Number </span>:
                       {idNumber}
                     </div>
                     <div className="">
-                      <span className="inline-block w-40">Location : </span>
+                      <span className="inline-block w-40">Location </span>:
                       {location}
                     </div>
                   </div>

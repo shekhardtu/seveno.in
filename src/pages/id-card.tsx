@@ -29,15 +29,17 @@ const Contact = () => {
 
     // eslint-disable-next-line new-cap
     const pdf = new jsPDF({
-      orientation: 'portrait',
-      unit: 'in',
-      format: [10, 4],
+      orientation: 'p',
+      format: 'a4',
+      unit: 'mm',
+      putOnlyUsedFonts: true,
+      floatPrecision: 16,
     });
     const imgProperties = pdf.getImageProperties(data);
     const pdfWidth = pdf.internal.pageSize.getWidth();
     const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
 
-    pdf.addImage(data, 'PNG', 0, 0, pdfWidth, pdfHeight);
+    pdf.addImage(data, 'PNG', 50, 50, pdfWidth / 2, pdfHeight / 2);
     pdf.save('print.pdf');
   };
   const router = useRouter();
@@ -195,44 +197,53 @@ const Contact = () => {
               <div className="flex-col items-center relative flex">
                 <div
                   ref={printRef}
-                  className="h-auto flex flex-col justify-center items-center  border-2 border-gray-600 w-80 p-4 rounded-md"
+                  className="bg-cover h-auto flex flex-col justify-center items-center border-2 border-gray-600 w-80 p-4 bg-no-repeat bg-center text-white"
+                  style={{
+                    backgroundImage: `url(${router.basePath}/assets/images/icard-bg.png)`,
+                  }}
                 >
                   <div className="h-1/5 relative border-b border-gray-500 m-3 pb-3">
                     <img
-                      src={`${router.basePath}/assets/images/logo2.png`}
+                      src={`${router.basePath}/assets/images/logo.png`}
                       alt=""
                     />
                   </div>
-                  <div className="h-2/5  relative mt-2">
+                  <div className="h-2/5  relative mt-2 bg-white">
                     {imagePath && (
                       <img
                         alt="not found"
                         src={URL.createObjectURL(imagePath)}
-                        className="rounded-full w-44 h-44 border-2 border-gray-600 p-1"
+                        className="w-32 h-44 border-2 border-gray-600 p-1"
                       />
                     )}
                   </div>
-                  <div className="h-1/5 relative my-4 font-bold">
+                  <div className="h-1/5 relative my-2 font-bold uppercase">
                     {firstName} {lastName}{' '}
                   </div>
-                  <div className="h-auto relative font-semibold text-base my-2">
+                  <div className="h-auto relative  text-base my-2">
                     <div className="">
-                      <span className="inline-block w-40">Designation : </span>
-                      {designation}
-                    </div>
-                    <div className="">
-                      <span className="inline-block w-40">
-                        Mobile Number :{' '}
+                      <span className="inline-block w-32 font-semibold">
+                        Designation{' '}
                       </span>
-                      {mobileNumber}
+                      :<span className="ml-4">{designation}</span>
                     </div>
                     <div className="">
-                      <span className="inline-block w-40">Id Number : </span>
-                      {idNumber}
+                      <span className="inline-block w-32 font-semibold">
+                        Mobile Number{' '}
+                      </span>
+                      :<span className="ml-4">{mobileNumber}</span>
                     </div>
                     <div className="">
-                      <span className="inline-block w-40">Location : </span>
-                      {location}
+                      <span className="inline-block w-32 font-semibold">
+                        Id Number{' '}
+                      </span>
+                      :<span className="ml-4">{idNumber}</span>
+                    </div>
+                    <div className="">
+                      <span className="inline-block w-32 font-semibold">
+                        Location{' '}
+                      </span>
+                      :<span className="ml-4">{location}</span>
                     </div>
                   </div>
                   <div className="relative text-sm">
