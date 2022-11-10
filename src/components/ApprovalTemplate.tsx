@@ -4,19 +4,29 @@ import type { CSSProperties } from 'react';
 type IapprovalTemplate = {
   applicantName: string;
   fatherName: string;
-  post: string;
-  salary: number;
-  mininmumTarget: string;
-  maximumTarget: string;
+  imagePath: any;
+  codeNumber: string;
   mobileNumber: string;
-  location: string;
-  incentive: string;
+
+  dob: string;
+  aadhar: number;
+  pan: string;
+  loanAmount: string;
+  loanPeriod: string;
+  bankName: string;
+  bankAccount: string;
+  bankIFSC: string;
+
+  gender: string;
+  state: string;
+
+  permanentAddress: string;
+  processingCharge: string;
+
   filledBy: string;
   agentContact: string;
-  imagePath: any;
-  addressLine1: string;
-  addressLine2: string;
-  codeNumber: string;
+  contactForOTP: string;
+  emi: string;
 };
 const ApprovalTemplate = (props: IapprovalTemplate) => {
   const router = useRouter();
@@ -47,19 +57,6 @@ const ApprovalTemplate = (props: IapprovalTemplate) => {
       display: 'block',
       width: '100%',
       height: '100%',
-    } as CSSProperties,
-    h1Heading: {
-      color: '#5145cc',
-      fontSize: '20px',
-      fontWeight: 'bold',
-      textTransform: 'uppercase',
-      padding: '15px',
-      paddingTop: '0',
-      width: '446px',
-      position: 'relative',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
     } as CSSProperties,
 
     text1Box: {
@@ -106,30 +103,6 @@ const ApprovalTemplate = (props: IapprovalTemplate) => {
       position: 'absolute',
     } as CSSProperties,
 
-    footerBox: {
-      display: 'flex',
-      fontSize: '12px',
-      padding: '20px',
-      paddingTop: '0',
-      justifyContent: 'space-between',
-      marginTop: '100px',
-    } as CSSProperties,
-    footerText: {
-      display: 'flex',
-      flexDirection: 'column',
-    } as CSSProperties,
-    footerImg: {
-      display: 'block',
-      height: '80px',
-      padding: '5px',
-    } as CSSProperties,
-    footerSignature: {
-      marginTop: '10px',
-      textDecoration: 'underline',
-      textTransform: 'uppercase',
-      fontWeight: 600,
-      fontSize: '12px',
-    } as CSSProperties,
     box: {
       display: 'flex',
       flexDirection: 'column',
@@ -170,6 +143,65 @@ const ApprovalTemplate = (props: IapprovalTemplate) => {
       margin: '16px 0 6px 0',
       paddingBottom: '5px',
     } as CSSProperties,
+    qrBox: {
+      display: 'flex',
+      flexDirection: 'column',
+      fontSize: '16px',
+      width: '100%',
+      marginBottom: '0',
+      padding: '20px 0',
+    } as CSSProperties,
+
+    qrImgBox: {
+      display: 'flex',
+      flexDirection: 'column',
+      width: '120px',
+    } as CSSProperties,
+    qrImg: {
+      display: 'flex',
+      height: '120px',
+      padding: '5px',
+      border: '2px solid #888',
+    } as CSSProperties,
+
+    footerBox: {
+      fontSize: '10px',
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      paddingBottom: '60px',
+    } as CSSProperties,
+    footerSignature: {
+      marginTop: '10px',
+      textDecoration: 'underline',
+      textTransform: 'uppercase',
+      fontWeight: 600,
+    } as CSSProperties,
+
+    formBox: {
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      width: '100%',
+    } as CSSProperties,
+
+    formData: {
+      display: 'flex',
+      flexDirection: 'column',
+      fontSize: '12px',
+    } as CSSProperties,
+    formLabel: {
+      display: 'inline-block',
+      width: '240px',
+      fontWeight: 'bold',
+    } as CSSProperties,
+    formValue: {
+      display: 'inline-block',
+      marginLeft: '10px',
+    } as CSSProperties,
+    formImgBox: {
+      display: 'flex',
+    } as CSSProperties,
   };
 
   function getCurrentDate(separator = '/') {
@@ -190,18 +222,19 @@ const ApprovalTemplate = (props: IapprovalTemplate) => {
       <div style={styles.container}>
         <div style={styles.box}>
           <div style={styles.contentContainer}>
-            <div style={styles.h1Heading}> JOINING LETTER</div>
-
             <div style={styles.text1Box}>
               <div style={styles.text1}>
                 To,
                 <br />
-                Mr. {props.applicantName} S/o Mr. {props.fatherName}
+                Mr./Mrs./Ms. {props.applicantName}
                 <br />
-                {props.addressLine1} <br />
-                {props.addressLine2}
+                {props.mobileNumber} <br />
                 <br />
-                +91-{props.mobileNumber}
+                Ref: Your account for loan from Shree Vaishno Finance Services
+                Pvt Ltd <br />
+                CFN: {props.codeNumber}
+                <br />
+                Date : {getCurrentDate()}
               </div>
               <div style={styles.text1Box}>
                 {props.imagePath && (
@@ -219,186 +252,331 @@ const ApprovalTemplate = (props: IapprovalTemplate) => {
                     src={`${router.basePath}/assets/images/stamp.png`}
                   />
                 )}
-
-                <div style={styles.text2}>Code No. {props.codeNumber}</div>
               </div>
             </div>
 
             <div style={styles.mainBox}>
-              We are pleased to appoint you in our organization as
-              <span style={styles.bold}> {props.post} </span>
-              AGENT GRADE: Shree Vaishno Finance Services PVT LTD w.e.f.
-              <div style={styles.bold}>{getCurrentDate()} </div>on the Following
-              Terms & Conditions:
+              Based on your Application no.{' '}
+              <div style={styles.bold}>{props.codeNumber} </div>acting under the
+              constitution of Shalimar Finance Pvt Ltd Pvt. Ltd. is pleased to
+              provide provisional sanction the loan request submitted by
+              Mr./Mrs./Ms. <div style={styles.bold}>{props.applicantName}</div>{' '}
+              accepting the terms and conditions for the progress of loan. This
+              is in subject to the execution of loan agreement and the other
+              documents between ourselves:-
+            </div>
+
+            <div style={styles.formBox}>
+              <div style={styles.formData}>
+                <div>
+                  <div style={styles.formLabel}> Date of Application</div>:
+                  <div style={styles.formValue}> {getCurrentDate()}</div>
+                </div>
+                <div>
+                  <div style={styles.formLabel}> Name</div>:
+                  <div style={styles.formValue}>
+                    Mr./Mrs./Ms.{props.applicantName}
+                  </div>
+                </div>
+                <div>
+                  <div style={styles.formLabel}> Guardian Name</div>:
+                  <div style={styles.formValue}>
+                    S/o. / D/o{props.fatherName}
+                  </div>
+                </div>
+                <div>
+                  <div style={styles.formLabel}> Permanent Address</div>:
+                  <div style={styles.formValue}> {props.permanentAddress}</div>
+                </div>
+                <div>
+                  <div style={styles.formLabel}> Date of Birth</div>:
+                  <div style={styles.formValue}> {props.dob}</div>
+                </div>
+                <div>
+                  <div style={styles.formLabel}> Contact </div>:
+                  <div style={styles.formValue}> +91 {props.mobileNumber}</div>
+                </div>
+                <div>
+                  <div style={styles.formLabel}> Aadhar</div>:
+                  <div style={styles.formValue}> {props.aadhar}</div>
+                </div>
+                <div>
+                  <div style={styles.formLabel}> PAN No</div>:
+                  <div style={styles.formValue}> {props.pan}</div>
+                </div>
+                <div>
+                  <div style={styles.formLabel}> Loan Amount</div>:
+                  <div style={styles.formValue}> {props.loanAmount}/-</div>
+                </div>
+
+                <div>
+                  <div style={styles.formLabel}> Period of Loan</div>:
+                  <div style={styles.formValue}> {props.loanPeriod} Years</div>
+                </div>
+                <div>
+                  <div style={styles.formLabel}> Rate of Interest</div>:
+                  <div style={styles.formValue}> 5%</div>
+                </div>
+                <div>
+                  <div style={styles.formLabel}>
+                    {' '}
+                    Monthly Equated Installment
+                  </div>
+                  :<div style={styles.formValue}> Rs.{props.emi} /-</div>
+                </div>
+                <div>
+                  <div style={styles.formLabel}> Required Guarantor</div>:
+                  <div style={styles.formValue}> One</div>
+                </div>
+                <div>
+                  <div style={styles.formLabel}>
+                    {' '}
+                    Bank Name & A/C No./ IFSC CODE
+                  </div>
+                  :
+                  <div style={styles.formValue}>
+                    {' '}
+                    {props.bankName} / {props.bankAccount} /{props.bankIFSC}{' '}
+                  </div>
+                </div>
+                <div>
+                  <div style={styles.formLabel}> Gender</div>:
+                  <div style={styles.formValue}> {props.gender} </div>
+                </div>
+                <div>
+                  <div style={styles.formLabel}> State</div>:
+                  <div style={styles.formValue}> {props.state} </div>
+                </div>
+                <div>
+                  <div style={styles.formLabel}>
+                    Processing Charge + 18% GST{' '}
+                  </div>
+                  :
+                  <div style={styles.formValue}> {props.processingCharge} </div>
+                </div>
+                <div>
+                  <div style={styles.formLabel}>
+                    {' '}
+                    Executive Code, Name & Contact
+                  </div>
+                  :
+                  <div style={styles.formValue}>
+                    {props.filledBy} / {props.agentContact}{' '}
+                  </div>
+                </div>
+              </div>
+              <div style={styles.formImgBox}>
+                {props.imagePath && (
+                  <img
+                    style={styles.formImg}
+                    alt="not found"
+                    src={URL.createObjectURL(props.imagePath)}
+                    className="w-32 h-44 border-2 border-gray-600 p-1"
+                  />
+                )}
+              </div>
+            </div>
+
+            <div style={styles.mainBox}>
+              You are intimated that Rs.{' '}
+              <div style={styles.bold}>{props.loanAmount}</div> has been
+              approved by the approving committee of the company, after the
+              validation of the submitted documents for loan. We are pleased to
+              inform you that the company is issuing the offer letter to you so
+              that we can further initiate your lone process as early as
+              possible. This offer letter is valid for 25 days. Where company
+              will keep you are submitted to documents safe only for 30 days,
+              otherwise your file will stand closed. Kindly deposit your process
+              fees of{' '}
+              <div style={styles.bold}>
+                1500/- (18.00% Gst Tax Of Agreement Fees) by Bank Demand Draft
+                (D.D) in favor of Shree Vaishno Finance Services Pvt Ltd{' '}
+              </div>{' '}
+              for issuing advisory report and to meet other expenses, along with
+              required reports as per company terms & conditions Mentioned at
+              the end of the letter WITHIN 10 DAYS (TEN DAYS) after receiving
+              the offer letter, kindly submit the D.D (demand draft) of
+              processing fee failing to which the offer letter will not be
+              valid. The advisory reports shall comprise of title, valuation,
+              investigation report of property etc. As per line mark on search
+              report.
+            </div>
+
+            <div style={styles.mainBox}>
               <div style={styles.termsList}>
-                <div style={styles.termsTitle}>Annual compensation:</div>
-                Your Annual compensation package (approx.) will be{' '}
+                <div style={styles.termsTitle}>
+                  {' '}
+                  SPECIAL CONDITIONS FOR LOAN (Important Terms & Conditions)
+                </div>
+                1. Disbursement of loan will be subject to the condition at the
+                time of disbursement.
+                <br />
+                2. Final approval sanction will be issued subject to fulfillment
+                of existing terms & conditions of apply. <br />
+                3. Only 50% of net salary of govt. guarantor can be treated as
+                EMI. <br />
+                4. net salary of govt. Guarantor must be doubled from the EMI of
+                loanee if salary of govt. Guarantor is less than double the
+                amount will be reduced.
+                <br />
+                5. Advance EMI installment will be recovered from all the
+                applicants / lonee if applicant depositing their E. M. I.
+                Without bouncing till completion of loan on demand, company can
+                provide loan equal to double in future in case a single
+                bouncing. This facility will not be applicable to them <br />
+                6. Company will accept only those applicant & guarantor whose
+                age should be 18 to 60 years. <br />
+                7. In case of property guarantor the property of any blood
+                relative will not be accepted SC caste guarantor is not
+                acceptable. <br />
+                8. In case if the document requested by the company is not
+                completed by the applicant shall be rejected. <br /> 9. File
+                charges of company is Rs.3150/- paid <br />
+                10. Property guarantor search report compulsory & all family
+                member permission is compulsory. <br />
+                11. File fees will not refundable after issuing the offer
+                letter.
+                <br />
+                <br />
+                <br />I accept that after verification of my records and my
+                guarantors Govt. Records, of any discrepancies traced, I will
+                fulfill the same within due course of time. If I cannot complete
+                the required terms & conditions/Legal formalities within due
+                course of time or paper found fake during investigation, then
+                finance company is fully competent to refuse refunding the
+                process fees, which has already deposited with the company and I
+                will not request to company to refund the process fees in any
+                circumstances as the same has been spend during investigation of
+                loan case. Except the amount mentioned at page no.1 and no other
+                amount is payable to the company, for which I am fully
+                responsible if paid to any person.
+              </div>
+            </div>
+
+            <div style={styles.mainBox}>
+              <div style={styles.termsList}>
+                <div style={styles.termsTitle}> QUESTIONAIRE FOR GUARANTOR</div>
                 <div style={styles.bold}>
-                  ON SALARY BASIS Rs. {props.salary}/- + {props.mininmumTarget}{' '}
-                  to {props.maximumTarget} FILE PER MONTH ({props.incentive}% OF
-                  INCENTIVE OF LOAN AMOUNT AFTER DISBURSEMENT) with T.A. & D.A.
-                  Rs. 2500/-.
-                </div>{' '}
-                subjects to deductions as per Govt. rules and any other Govt.
-                taxes and Levis as may be applicable.{' '}
-              </div>
-              <div style={styles.termsList}>
-                <div style={styles.termsTitle}> Location: </div>
-                Your initial place of position will be our
-                <div style={styles.bold}> {props.location} </div>
-                office However the organization reserve the right to transfer
-                you at any other office/branch, subsidiary or association
-                Company of the organization in India that is in existence or may
-                come into existence at a future date. On your transfer you will
-                governed by the company rule applicable to the establishment to
-                which you are posted.
-              </div>
-              <div style={styles.termsList}>
-                <div style={styles.termsTitle}>
-                  Duties and responsibilities:{' '}
+                  GOVERNMENT GUARANTOR [ ] PVT. LTD. GUARANTOR [ ] PROPERTY
+                  GUARANTOR [ ]
                 </div>
-                A. The Company will expect you to work with a high standard of
-                integrity, initiative, efficiency and economy. <br />
-                B. You will devote your entire time and attention to the work of
-                the company and will not undertake any direct/indirect business
-                or work honory or remunerative expect with the written
-                permission of the management in each case, contravention of this
-                will lead to the termination of your service without any notice
-                or any compensation in lieu of such notice. <br />
-                C. You shall not seek membership of any local or public bodies
-                without obtaining written permission form
                 <br />
-                management by words of month or otherwise, or deals of the
-                company system of working, technical Know how, security
-                arrangement and/or organization matters of a confidential/secret
-                nature, which may be
-              </div>
-              <div style={styles.termsList}>
-                <div style={styles.termsTitle}> Past Records: </div>
-                privileging to know by to virtue of your being the company
-                employee. D. You shall keep confidential all the information and
-                material provide to you by the company or by its clients
-                concerning their affairs in order to enable to company to
-                perform the service, this also includes such information as is
-                already known which also, you will not release, use or disclose
-                expect with the prior written permission of the company, your
-                obligation to keep such formation confidential shall remain even
-                after termination after cancellation of this employment.{' '}
-              </div>
-              <div style={styles.termsList}>
-                <div style={styles.termsTitle}> Probationary Period: </div>
-                Your appointment shall be for the period of six month on
-                probation, at the end of which the decision will be taken by the
-                organization to extent/termination your tenure, the extension if
-                Permissible will be at same salary unless otherwise specified.
-                The decision of the company so taken Shall & binding on you. It
-                may be clearly noted that company will need at least 15 days
-                salary in lieu. Thereof, in case you wish to leave the company
-                during the tenure of notice period, The company Reserves the
-                right to terminate your services by giving you a 24 hours
-                notice. Secrecy You will be required to act in the best interest
-                of the organization always. You shall not discuss, Divulge, or
-                make public to any person/Third party at any time during your
-                services with the Organization or there after any information,
-                truncation, Secrets, relating to business of the Company. Which
-                may come within your possession in the courses of work.
-                Alternate Employment During the period of services with
-                organization you will not accept or perform any Part-time or
-                other work for remuneration without obtain prior sanction the
-                organization.
-              </div>
-              <div style={styles.termsList}>
-                <div style={styles.termsTitle}>Leave: </div>
-                In case of any leave taken under unfrozen circumstances, for
-                which prior approval was not taken Obtained immediate
-                information will be required to be sent. In case if you fail to
-                do so, Management will have the right to take the action against
-                you as per company rule.
-              </div>
-              <div style={styles.termsList}>
-                <div style={styles.termsTitle}> Increment: </div>
-                Your increment and prospects in the company shall entirely
-                depend on your appraisal depends on Efficiency Hard work and
-                regularity in attendance, sincerity, good Conduct companyâ€TMs
-                performance And such other relevant factors as adjudged by the
-                management. I appreciate your willingness to serve in this
-                position, and I am confident that your time will be spent In a
-                manner to improve the state business of Delhi(city name){' '}
-              </div>
-              <div style={styles.termsList}>
-                <div style={styles.termsTitle}>Reference Checks: </div>
-                Your appointmwnt will be subject to the organization receiving
-                sartisfactory refrences, Please furnish the name of the
-                references, who have supervised you in a professional capacity
-                at some stage in your professional career. Not with standing
-                anything contained in the avobe paragraphs, your services may be
-                terminated by the organization if you are found to be indulging
-                in a cuts of commission / omission which may be prejudicial to
-                the interest of the organization, or any act of dishonesty ,
-                disobedience, insubordination are any other misconduct or
-                neglect of duty or incompetence in the discharge of duty on your
-                part.
+                Name:.................................................................................................................................
+                S/o,W/o,D/o:
+                ..............................................................
+                Date of Birth: ............................... Age:
+                ..................... Residence Address:
+                .............................................................................
+                ............................................................................................................................................
+                Office Phone No:
+                ................................................. Mobile:
+                ............................................... Office/Property
+                Address:
+                ...................................................................................................
+                Department Name
+                ..............................................................................................................
+                Official Designation/Post
+                ............................................... Remaining
+                Service Period till
+                Retirement:......................................................
+                Job Transferble Yes / No: ........................ Willing to
+                Fulfil All Legal Requirement for surety of guarantee of loan:
+                Yes / No: .......... Previously stood as a surety is given any
+                guarantee: Yes / No: ........................................
+                Will Your successors agreed with you as have stand as a
+                Guarantor for Mr./Mrs./Ms: .................................
+                Amount of net carry home salary per month:
+                .................................. Distt:
+                .................................................... Nagar
+                Panchayat: ................................................
+                Tehsil: ................................................
+                Mohalla:
+                .................................................................
+                Police station: ..........................................
+                Chokee:
+                ............................................................
+                Check Post: ..................... Pin Code:
+                ..........................
                 <br />
-                If any declaration given or furnished by you to the company
-                proves to be false or if you are found to have will fully
-                surpressed any material information in such case you will be
-                liable to removal from without any notice.
-              </div>
-              <div style={styles.termsList}>
-                <div style={styles.termsTitle}>
-                  Consequence of breach of Terms:
+                <br />
+                <div style={styles.bold}>Guarantor Require document:-</div>
+                <br></br>
+                <div style={styles.bold} className="p-9">
+                  5 photo
                 </div>
-                Not with standing anything contained in this letter, should you
-                contravene or breach any of the foregoing, the company will be
-                entitled to terminate your service forthwith without
-                compensation, notice period or salary in lieu thereof and
-                without prejudice to other legal rights/remedies available to
-                the company. However, no notice would be required to be given by
-                the management in case the employee has concealed/suppressed
-                information or is found guilty of gross indiscipline, fraud,
-                misappropriation or acting against the interest of the office.{' '}
+                <div style={styles.bold} className="p-9">
+                  Address Proof{' '}
+                </div>
+                <div style={styles.bold}> I.D Proof</div>
+                <div style={styles.bold}>7 stamp paper 50-50 Rs/- </div>
+                <div style={styles.bold}>Bank detail</div> <br />
+                Property documents (in case of property guarantor) Last two
+                months pay slip & last six months bank statement (in case of
+                Govt/pvt.) Last two year statement of I.T.R (in case of I.T.R
+                Guarantor )
+                <div style={styles.bold}>
+                  {' '}
+                  Important Notice of Shree Vaishno Finance Services PVT LTD
+                </div>
               </div>
-              <div style={styles.termsList}>
-                <div style={styles.termsTitle}> General: </div>
-                You are required to submit the following documents, if you have
-                not submitted the same earlier: <br />
-                a.Clariification in support of your education, experince, date
-                of birth and other testimonials in together with copied thereof.
-                b. Two copied of your recent passport size colored photographs.
-                c. Two copied of postcard size colored photographed, if entitled
-                for E.S.I. benefit. d. Relieving letter from your last employer
-                in case you were employed. I case of leaving the company, you
-                will return to the company all papers/ documents or any other
-                item belonging to the company.
-              </div>
-              <div style={styles.termsList}>
-                <div style={styles.termsTitle}>Relieving:</div>
-                Any changes in your status of residential address should be
-                notified in writing to the company. We welcome you to Shalimar
-                Finance Pvt Ltd Change of Address: And look forward to having a
-                long and mutually beneficial association with you.
-              </div>
-              <div style={styles.termsList}>
-                I have read and understood the above terms and conditions of the
-                appointment letter and hereby give my acceptance to the same.
+            </div>
+
+            <div style={styles.mainBox}>
+              <ol start={1}>
+                <li>
+                  {' '}
+                  1. Applicant should not deposit money in any of these
+                  following working (person lawyer, agent) or else company would
+                  not be responsible for it.
+                </li>
+                <li>
+                  {' '}
+                  2. After receiving the offer letter you have to submit the
+                  process charge fees if not you have to pay for file reopen
+                  charge after 10 days.
+                </li>
+                <li>
+                  3. Every signed paper of the offer letter as well as required
+                  paper processing fees has to be send to the company
+                </li>
+                <li>
+                  4. The payment of the process fees has to be deposit in
+                  company account.
+                </li>
+                <li>
+                  5. Immediately send your personal mobile number to the company
+                  so that you may not face any problems during up coming forward
+                  proceeding.
+                </li>
+                <li>
+                  6. Immediately send the cash deposit slip at company email
+                  I.D- info@shalimarfinance.com
+                </li>
+                <li>
+                  7. The process charge should not be returned after the offer
+                  letter is ready.
+                </li>
+                <li>
+                  8. Signature or thumb impression is compulsory in every page.
+                </li>
+              </ol>
+              <div style={styles.qrBox}>
+                <div style={styles.qrImgBox}>
+                  <img
+                    style={styles.qrImg}
+                    src={`${router.basePath}/assets/images/payment-qr.jpeg`}
+                    alt=""
+                  ></img>
+                </div>
               </div>
             </div>
           </div>
           <div className="footer" style={styles.footerBox}>
-            <div style={styles.footerText}>
-              <div className="font-bold">Authorized Signatory</div>
-              <div className="font-bold mb-8">
-                Shree Vaishno Finance Services PVT LTD
-              </div>
-              <div className="text-indigo-600">
-                Working Under: {props.filledBy}
-              </div>
-              <div className="text-indigo-600">
-                Contact No: +91-{props.agentContact}
-              </div>
-              <div style={styles.footerSignature}>
-                SIGNATURE AND THUMB IMPRESSION
-              </div>
+            <div style={styles.footerSignature}>
+              SIGNATURE OF GAURANTER & THUMB-IMPRESSION{' '}
+            </div>
+            <div style={styles.footerSignature}>
+              SIGNATURE OF APPLICANT & THUMB-IMPRESSION
             </div>
           </div>
         </div>
