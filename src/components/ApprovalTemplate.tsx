@@ -71,7 +71,7 @@ const ApprovalTemplate = (props: IapprovalTemplate) => {
     text1: {
       display: 'inline-block',
       color: '#5145cc',
-      width: '340px',
+      width: '440px',
       fontWeight: 'bold',
       position: 'relative',
     } as CSSProperties,
@@ -99,6 +99,7 @@ const ApprovalTemplate = (props: IapprovalTemplate) => {
       height: '50px',
       padding: '0',
       right: '-15px',
+      zIndex: '9999',
       top: '140px',
       position: 'absolute',
     } as CSSProperties,
@@ -126,6 +127,18 @@ const ApprovalTemplate = (props: IapprovalTemplate) => {
       verticalAlign: 'top',
     } as CSSProperties,
 
+    boldBlockFirst: {
+      marginLeft: 0,
+    } as CSSProperties,
+    boldBlock: {
+      color: '#5145cc',
+      display: 'inline-block',
+      fontWeight: 700,
+      verticalAlign: 'top',
+      margin: '10px 10px 40px 10px',
+      padding: 0,
+    } as CSSProperties,
+
     termsList: {
       fontSize: '12px',
       fontWeight: 400,
@@ -134,6 +147,8 @@ const ApprovalTemplate = (props: IapprovalTemplate) => {
       fontSize: '14px',
       margin: '16px 0 2px 0',
       fontWeight: 700,
+      display: 'block',
+      marginBottom: '20px',
     } as CSSProperties,
     termsLabel: {
       fontSize: '14px',
@@ -254,18 +269,16 @@ const ApprovalTemplate = (props: IapprovalTemplate) => {
                 )}
               </div>
             </div>
-
             <div style={styles.mainBox}>
               Based on your Application no.{' '}
               <div style={styles.bold}>{props.codeNumber} </div>acting under the
-              constitution of Shalimar Finance Pvt Ltd Pvt. Ltd. is pleased to
-              provide provisional sanction the loan request submitted by
+              constitution of Shree Vaishno Finance Services Pvt Ltd is pleased
+              to provide provisional sanction the loan request submitted by
               Mr./Mrs./Ms. <div style={styles.bold}>{props.applicantName}</div>{' '}
               accepting the terms and conditions for the progress of loan. This
               is in subject to the execution of loan agreement and the other
               documents between ourselves:-
             </div>
-
             <div style={styles.formBox}>
               <div style={styles.formData}>
                 <div>
@@ -322,7 +335,7 @@ const ApprovalTemplate = (props: IapprovalTemplate) => {
                     {' '}
                     Monthly Equated Installment
                   </div>
-                  :<div style={styles.formValue}> Rs.{props.emi} /-</div>
+                  :<div style={styles.formValue}> Rs. {props.emi} /-</div>
                 </div>
                 <div>
                   <div style={styles.formLabel}> Required Guarantor</div>:
@@ -376,10 +389,10 @@ const ApprovalTemplate = (props: IapprovalTemplate) => {
                 )}
               </div>
             </div>
-
+            <br />
             <div style={styles.mainBox}>
               You are intimated that Rs.{' '}
-              <div style={styles.bold}>{props.loanAmount}</div> has been
+              <div style={styles.bold}>{`${props.loanAmount}/-`}</div> has been
               approved by the approving committee of the company, after the
               validation of the submitted documents for loan. We are pleased to
               inform you that the company is issuing the offer letter to you so
@@ -391,7 +404,7 @@ const ApprovalTemplate = (props: IapprovalTemplate) => {
               <div style={styles.bold}>
                 1500/- (18.00% Gst Tax Of Agreement Fees) by Bank Demand Draft
                 (D.D) in favor of Shree Vaishno Finance Services Pvt Ltd{' '}
-              </div>{' '}
+              </div>
               for issuing advisory report and to meet other expenses, along with
               required reports as per company terms & conditions Mentioned at
               the end of the letter WITHIN 10 DAYS (TEN DAYS) after receiving
@@ -401,11 +414,9 @@ const ApprovalTemplate = (props: IapprovalTemplate) => {
               investigation report of property etc. As per line mark on search
               report.
             </div>
-
             <div style={styles.mainBox}>
               <div style={styles.termsList}>
                 <div style={styles.termsTitle}>
-                  {' '}
                   SPECIAL CONDITIONS FOR LOAN (Important Terms & Conditions)
                 </div>
                 1. Disbursement of loan will be subject to the condition at the
@@ -452,7 +463,12 @@ const ApprovalTemplate = (props: IapprovalTemplate) => {
                 responsible if paid to any person.
               </div>
             </div>
-
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br> <br></br> <br></br> <br></br> <br></br> <br></br>{' '}
+            <br></br> <br></br> <br></br> <br></br> <br></br>
             <div style={styles.mainBox}>
               <div style={styles.termsList}>
                 <div style={styles.termsTitle}> QUESTIONAIRE FOR GUARANTOR</div>
@@ -501,15 +517,11 @@ const ApprovalTemplate = (props: IapprovalTemplate) => {
                 <br />
                 <div style={styles.bold}>Guarantor Require document:-</div>
                 <br></br>
-                <div style={styles.bold} className="p-9">
-                  5 photo
-                </div>
-                <div style={styles.bold} className="p-9">
-                  Address Proof{' '}
-                </div>
-                <div style={styles.bold}> I.D Proof</div>
-                <div style={styles.bold}>7 stamp paper 50-50 Rs/- </div>
-                <div style={styles.bold}>Bank detail</div> <br />
+                <div style={styles.boldBlock}>5 photo,</div>
+                <div style={styles.boldBlock}>Address Proof, </div>
+                <div style={styles.boldBlock}> I.D Proof,</div>
+                <div style={styles.boldBlock}>7 stamp paper 50-50 Rs/-, </div>
+                <div style={styles.boldBlock}>Bank detail,</div> <br />
                 Property documents (in case of property guarantor) Last two
                 months pay slip & last six months bank statement (in case of
                 Govt/pvt.) Last two year statement of I.T.R (in case of I.T.R
@@ -520,7 +532,6 @@ const ApprovalTemplate = (props: IapprovalTemplate) => {
                 </div>
               </div>
             </div>
-
             <div style={styles.mainBox}>
               <ol start={1}>
                 <li>

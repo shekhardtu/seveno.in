@@ -34,7 +34,6 @@ const WelcomeTemplate = (props: Iwelcome) => {
     //   backgroundBlendMode: 'overlay',
     // } as CSSProperties,
     container: {
-      border: '5px solid #000',
       display: 'flex',
       justifyContent: 'center',
       alignContent: 'center',
@@ -214,13 +213,6 @@ const WelcomeTemplate = (props: Iwelcome) => {
       <div style={styles.container}>
         <div style={styles.box}>
           <div style={styles.contentContainer}>
-            <div style={styles.box}>
-              <img
-                style={styles.headerImg}
-                src={`${router.basePath}/assets/images/header.png`}
-                alt=""
-              ></img>
-            </div>
             <div style={styles.h1Heading}> Congratulations</div>
 
             <div style={styles.text1Box}>

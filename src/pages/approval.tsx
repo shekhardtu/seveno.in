@@ -74,7 +74,7 @@ const Contact = () => {
 
     // doc.addImage(imgData, 'PNG', 40, 40, 75, 75);
     doc.setTextColor(150);
-    doc.addImage(img, 'png', 250, 450, 320, 76, 'watermark', 'NONE', 20);
+    doc.addImage(img, 'png', 30, 550, 660, 152, 'watermark', 'NONE', 20);
 
     return doc;
   }
@@ -117,7 +117,7 @@ const Contact = () => {
             pdf.internal.pageSize.getWidth() - 200,
             pdf.internal.pageSize.getHeight() - 20
           );
-          pdf.addImage(img, 'png', 40, 0, 554, 182);
+          pdf.addImage(img, 'png', 50, 0, 554, 182);
           addWaterMark(pdf);
         }
         pdf.save('approvalLetter');

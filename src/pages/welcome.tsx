@@ -1,10 +1,12 @@
 import { jsPDF } from 'jspdf';
+import { useRouter } from 'next/router';
 import React, { useEffect, useRef, useState } from 'react';
 
 import WelcomeTemplate from '@/components/WelcomeTemplate';
 import { Main } from '@/templates/Main';
 
 const Contact = () => {
+  const router = useRouter();
   const printRef = useRef<any>(null);
 
   const [applicantName, setApplicantName]: [any, any] = useState('Raju');
@@ -51,7 +53,16 @@ const Contact = () => {
       setEmi(``);
     }
   }, [loanAmount, loanDuration]);
+  function addWaterMark(doc: any) {
+    const img = new Image();
+    img.src = `${router.basePath}/assets/images/logo_op.png`;
 
+    // doc.addImage(imgData, 'PNG', 40, 40, 75, 75);
+    doc.setTextColor(150);
+    doc.addImage(img, 'png', 30, 550, 660, 152, 'watermark', 'NONE', 20);
+
+    return doc;
+  }
   const handleDownloadPdf = () => {
     // eslint-disable-next-line new-cap
     const doc = new jsPDF({
@@ -66,9 +77,35 @@ const Contact = () => {
 
     doc.html(printRef.current, {
       // eslint-disable-next-line @typescript-eslint/no-shadow
-      async callback(doc: { save: (arg0: string) => void }) {
+      margin: [200, 0, 40, 20],
+      autoPaging: 'text',
+
+      async callback(pdf) {
         // save the document as a PDF with name of Memes
-        doc.save('Memes');
+        const totalPages = pdf.internal.pages.length - 1;
+        const img = new Image();
+        img.src = `${router.basePath}/assets/images/header.png`;
+
+        // eslint-disable-next-line no-plusplus
+        for (let i = 1; i <= totalPages; i++) {
+          pdf.setPage(i);
+
+          pdf.setFontSize(10);
+          // pdf.setTextColor(150);
+          // pdf.text(
+          //   `Page ${i} of ${totalPages}`,
+          //   pdf.internal.pageSize.getWidth() - 100,
+          //   pdf.internal.pageSize.getHeight() - 30
+          // );
+          pdf.text(
+            `SIGNATURE & THUMB-IMPRESSION OF LOANEE `,
+            pdf.internal.pageSize.getWidth() - 200,
+            pdf.internal.pageSize.getHeight() - 20
+          );
+          pdf.addImage(img, 'png', 40, 0, 554, 182);
+          addWaterMark(pdf);
+        }
+        pdf.save('approvalLetter');
       },
     });
   };
