@@ -37,10 +37,12 @@ const ApprovalTemplate = (props: IapprovalTemplate) => {
       // overflow: 'hidden',
       width: '590px',
       height: '822px',
+      fontSize: '10px',
+      lineHeight: '1.2em',
     } as CSSProperties,
     contentContainer: {
-      fontSize: '12px',
-
+      fontSize: '10px',
+      lineHeight: '1.5em',
       margin: '20px',
       marginTop: '0',
       width: '94%',
@@ -61,7 +63,7 @@ const ApprovalTemplate = (props: IapprovalTemplate) => {
 
     text1Box: {
       display: 'flex',
-      color: '#5145cc',
+      color: '#FF0000',
       fontWeight: 'bold',
       justifyContent: 'flex-end',
       marginBottom: '10px',
@@ -70,7 +72,7 @@ const ApprovalTemplate = (props: IapprovalTemplate) => {
 
     text1: {
       display: 'inline-block',
-      color: '#5145cc',
+      color: '#000',
       width: '440px',
       fontWeight: 'bold',
       position: 'relative',
@@ -78,7 +80,7 @@ const ApprovalTemplate = (props: IapprovalTemplate) => {
 
     text2: {
       display: 'inline-block',
-      color: '#5145cc',
+      color: '#FF0000',
       width: '180px',
       fontWeight: 'bold',
       textAlign: 'right',
@@ -116,12 +118,12 @@ const ApprovalTemplate = (props: IapprovalTemplate) => {
     } as CSSProperties,
     mainBox: {
       display: 'block',
-      lineHeight: '1.4rem',
-      margin: '20px 0',
+      margin: '15px 0',
+      marginTop: '10px',
       verticalAlign: 'bottom',
     } as CSSProperties,
     bold: {
-      color: '#5145cc',
+      color: '#8C3B38',
       display: 'contents',
       fontWeight: 700,
       verticalAlign: 'top',
@@ -140,18 +142,19 @@ const ApprovalTemplate = (props: IapprovalTemplate) => {
     } as CSSProperties,
 
     termsList: {
-      fontSize: '12px',
+      fontSize: '10px',
       fontWeight: 400,
     } as CSSProperties,
     termsTitle: {
-      fontSize: '14px',
+      color: '#FF0000',
+      fontSize: '12px',
       margin: '16px 0 2px 0',
       fontWeight: 700,
       display: 'block',
       marginBottom: '20px',
     } as CSSProperties,
     termsLabel: {
-      fontSize: '14px',
+      fontSize: '12px',
       borderBottom: '2px solid #999',
       fontWeight: 'bold',
       display: 'inline-block',
@@ -203,16 +206,22 @@ const ApprovalTemplate = (props: IapprovalTemplate) => {
     formData: {
       display: 'flex',
       flexDirection: 'column',
-      fontSize: '12px',
+      fontSize: '10px',
     } as CSSProperties,
     formLabel: {
       display: 'inline-block',
       width: '240px',
       fontWeight: 'bold',
+      paddingBottom: '6px',
+      paddingLeft: '10px',
+      border: '1px solid #ddd',
     } as CSSProperties,
     formValue: {
       display: 'inline-block',
-      marginLeft: '10px',
+      border: '1px solid #ddd',
+      paddingBottom: '6px',
+      paddingLeft: '10px',
+      width: '300px',
     } as CSSProperties,
     formImgBox: {
       display: 'flex',
@@ -231,9 +240,6 @@ const ApprovalTemplate = (props: IapprovalTemplate) => {
   }
   return (
     <section className="relative flex flex-col justify-center m-auto w-full">
-      {/* <div style={styles.coverBg}></div> */}
-
-      {/* <img alt="" src={`${router.basePath}/assets/images/banner.jpg`} /> */}
       <div style={styles.container}>
         <div style={styles.box}>
           <div style={styles.contentContainer}>
@@ -244,7 +250,6 @@ const ApprovalTemplate = (props: IapprovalTemplate) => {
                 Mr./Mrs./Ms. {props.applicantName}
                 <br />
                 {props.mobileNumber} <br />
-                <br />
                 Ref: Your account for loan from Shree Vaishno Finance Services
                 Pvt Ltd <br />
                 CFN: {props.codeNumber}
@@ -282,52 +287,52 @@ const ApprovalTemplate = (props: IapprovalTemplate) => {
             <div style={styles.formBox}>
               <div style={styles.formData}>
                 <div>
-                  <div style={styles.formLabel}> Date of Application</div>:
+                  <div style={styles.formLabel}> Date of Application</div>
                   <div style={styles.formValue}> {getCurrentDate()}</div>
                 </div>
                 <div>
-                  <div style={styles.formLabel}> Name</div>:
+                  <div style={styles.formLabel}> Name</div>
                   <div style={styles.formValue}>
                     Mr./Mrs./Ms.{props.applicantName}
                   </div>
                 </div>
                 <div>
-                  <div style={styles.formLabel}> Guardian Name</div>:
+                  <div style={styles.formLabel}> Guardian Name</div>
                   <div style={styles.formValue}>
                     S/o. / D/o{props.fatherName}
                   </div>
                 </div>
                 <div>
-                  <div style={styles.formLabel}> Permanent Address</div>:
+                  <div style={styles.formLabel}> Permanent Address</div>
                   <div style={styles.formValue}> {props.permanentAddress}</div>
                 </div>
                 <div>
-                  <div style={styles.formLabel}> Date of Birth</div>:
+                  <div style={styles.formLabel}> Date of Birth</div>
                   <div style={styles.formValue}> {props.dob}</div>
                 </div>
                 <div>
-                  <div style={styles.formLabel}> Contact </div>:
+                  <div style={styles.formLabel}> Contact </div>
                   <div style={styles.formValue}> +91 {props.mobileNumber}</div>
                 </div>
                 <div>
-                  <div style={styles.formLabel}> Aadhar</div>:
+                  <div style={styles.formLabel}> Aadhar</div>
                   <div style={styles.formValue}> {props.aadhar}</div>
                 </div>
                 <div>
-                  <div style={styles.formLabel}> PAN No</div>:
+                  <div style={styles.formLabel}> PAN No</div>
                   <div style={styles.formValue}> {props.pan}</div>
                 </div>
                 <div>
-                  <div style={styles.formLabel}> Loan Amount</div>:
+                  <div style={styles.formLabel}> Loan Amount</div>
                   <div style={styles.formValue}> {props.loanAmount}/-</div>
                 </div>
 
                 <div>
-                  <div style={styles.formLabel}> Period of Loan</div>:
+                  <div style={styles.formLabel}> Period of Loan</div>
                   <div style={styles.formValue}> {props.loanPeriod} Years</div>
                 </div>
                 <div>
-                  <div style={styles.formLabel}> Rate of Interest</div>:
+                  <div style={styles.formLabel}> Rate of Interest</div>
                   <div style={styles.formValue}> 5%</div>
                 </div>
                 <div>
@@ -335,36 +340,34 @@ const ApprovalTemplate = (props: IapprovalTemplate) => {
                     {' '}
                     Monthly Equated Installment
                   </div>
-                  :<div style={styles.formValue}> Rs. {props.emi} /-</div>
+                  <div style={styles.formValue}> Rs. {props.emi} /-</div>
                 </div>
                 <div>
-                  <div style={styles.formLabel}> Required Guarantor</div>:
+                  <div style={styles.formLabel}> Required Guarantor</div>
                   <div style={styles.formValue}> One</div>
                 </div>
                 <div>
                   <div style={styles.formLabel}>
-                    {' '}
                     Bank Name & A/C No./ IFSC CODE
                   </div>
-                  :
+
                   <div style={styles.formValue}>
-                    {' '}
-                    {props.bankName} / {props.bankAccount} /{props.bankIFSC}{' '}
+                    {props.bankName} / {props.bankAccount} /{props.bankIFSC}
                   </div>
                 </div>
                 <div>
-                  <div style={styles.formLabel}> Gender</div>:
+                  <div style={styles.formLabel}> Gender</div>
                   <div style={styles.formValue}> {props.gender} </div>
                 </div>
                 <div>
-                  <div style={styles.formLabel}> State</div>:
+                  <div style={styles.formLabel}> State</div>
                   <div style={styles.formValue}> {props.state} </div>
                 </div>
                 <div>
                   <div style={styles.formLabel}>
                     Processing Charge + 18% GST{' '}
                   </div>
-                  :
+
                   <div style={styles.formValue}> {props.processingCharge} </div>
                 </div>
                 <div>
@@ -372,7 +375,7 @@ const ApprovalTemplate = (props: IapprovalTemplate) => {
                     {' '}
                     Executive Code, Name & Contact
                   </div>
-                  :
+
                   <div style={styles.formValue}>
                     {props.filledBy} / {props.agentContact}{' '}
                   </div>
@@ -464,11 +467,7 @@ const ApprovalTemplate = (props: IapprovalTemplate) => {
               </div>
             </div>
             <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br> <br></br> <br></br> <br></br> <br></br> <br></br>{' '}
-            <br></br> <br></br> <br></br> <br></br> <br></br>
+
             <div style={styles.mainBox}>
               <div style={styles.termsList}>
                 <div style={styles.termsTitle}> QUESTIONAIRE FOR GUARANTOR</div>
@@ -476,6 +475,8 @@ const ApprovalTemplate = (props: IapprovalTemplate) => {
                   GOVERNMENT GUARANTOR [ ] PVT. LTD. GUARANTOR [ ] PROPERTY
                   GUARANTOR [ ]
                 </div>
+                <br />
+                <br />
                 <br />
                 Name:.................................................................................................................................
                 S/o,W/o,D/o:
@@ -508,11 +509,11 @@ const ApprovalTemplate = (props: IapprovalTemplate) => {
                 Tehsil: ................................................
                 Mohalla:
                 .................................................................
-                Police station: ..........................................
-                Chokee:
+                Police station:
+                ..........................................Chokee:
                 ............................................................
-                Check Post: ..................... Pin Code:
-                ..........................
+                Check Post: ..................... Pin
+                Code:..........................
                 <br />
                 <br />
                 <div style={styles.bold}>Guarantor Require document:-</div>
@@ -526,8 +527,25 @@ const ApprovalTemplate = (props: IapprovalTemplate) => {
                 months pay slip & last six months bank statement (in case of
                 Govt/pvt.) Last two year statement of I.T.R (in case of I.T.R
                 Guarantor )
-                <div style={styles.bold}>
-                  {' '}
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <div style={styles.termsTitle}>
                   Important Notice of Shree Vaishno Finance Services PVT LTD
                 </div>
               </div>
@@ -561,7 +579,7 @@ const ApprovalTemplate = (props: IapprovalTemplate) => {
                 </li>
                 <li>
                   6. Immediately send the cash deposit slip at company email
-                  I.D- info@shalimarfinance.com
+                  I.D- info@seveno.in
                 </li>
                 <li>
                   7. The process charge should not be returned after the offer
