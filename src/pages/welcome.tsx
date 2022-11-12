@@ -57,7 +57,6 @@ const Contact = () => {
     const img = new Image();
     img.src = `${router.basePath}/assets/images/logo_op.png`;
 
-    // doc.addImage(imgData, 'PNG', 40, 40, 75, 75);
     doc.setTextColor(150);
     doc.addImage(img, 'png', 30, 550, 660, 152, 'watermark', 'NONE', 20);
 
@@ -72,12 +71,9 @@ const Contact = () => {
       floatPrecision: 16,
     });
 
-    // Adding the fonts
-    // doc.setFont('Anton-Regular', 'normal');
-
     doc.html(printRef.current, {
       // eslint-disable-next-line @typescript-eslint/no-shadow
-      margin: [200, 0, 40, 20],
+      margin: [160, 0, 40, 20],
       autoPaging: 'text',
 
       async callback(pdf) {
@@ -92,20 +88,20 @@ const Contact = () => {
 
           pdf.setFontSize(10);
           // pdf.setTextColor(150);
-          // pdf.text(
-          //   `Page ${i} of ${totalPages}`,
-          //   pdf.internal.pageSize.getWidth() - 100,
-          //   pdf.internal.pageSize.getHeight() - 30
-          // );
           pdf.text(
-            `SIGNATURE & THUMB-IMPRESSION OF LOANEE `,
-            pdf.internal.pageSize.getWidth() - 200,
-            pdf.internal.pageSize.getHeight() - 20
+            `Page ${i} of ${totalPages}`,
+            pdf.internal.pageSize.getWidth() - 100,
+            pdf.internal.pageSize.getHeight() - 30
           );
+          // pdf.text(
+          //   `SIGNATURE & THUMB-IMPRESSION OF LOANEE `,
+          //   pdf.internal.pageSize.getWidth() - 200,
+          //   pdf.internal.pageSize.getHeight() - 20
+          // );
           pdf.addImage(img, 'png', 40, 0, 554, 182);
           addWaterMark(pdf);
         }
-        pdf.save('approvalLetter');
+        pdf.save('welcomeLetter');
       },
     });
   };

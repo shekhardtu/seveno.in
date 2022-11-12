@@ -15,24 +15,6 @@ type Iwelcome = {
 const WelcomeTemplate = (props: Iwelcome) => {
   const router = useRouter();
   const styles = {
-    // coverBg: {
-    //   position: 'absolute',
-    //   top: 0,
-    //   left: 0,
-    //   zIndex: 0,
-    //   opacity: '0.4',
-    //   width: '100%',
-    //   height: '100%',
-    //   rotate: '1 -0.5 1 90deg',
-
-    //   // backgroundImage: `url(${router.basePath}/assets/images/logo.png)`,
-
-    //   // backgroundImage: `url(https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80)`,
-    //   backgroundRepeat: 'no-repeat',
-    //   backgroundSize: 'auto',
-    //   backgroundPosition: '50% 50%',
-    //   backgroundBlendMode: 'overlay',
-    // } as CSSProperties,
     container: {
       display: 'flex',
       justifyContent: 'center',
@@ -41,8 +23,9 @@ const WelcomeTemplate = (props: Iwelcome) => {
       // overflow: 'hidden',
       width: '590px',
       margin: '20px 20px',
+      marginTop: 0,
       marginBottom: '0',
-      height: '852px',
+      height: '652px',
     } as CSSProperties,
     contentContainer: {
       fontSize: '12px',
@@ -205,6 +188,16 @@ const WelcomeTemplate = (props: Iwelcome) => {
       margin: '20px 0',
     } as CSSProperties,
   };
+  function getCurrentDate(separator = '/') {
+    const newDate = new Date();
+    const date = newDate.getDate();
+    const month = newDate.getMonth() + 1;
+    const year = newDate.getFullYear();
+
+    return `${date}${separator}${
+      month < 10 ? `0${month}` : `${month}`
+    }${separator}${year}`;
+  }
   return (
     <section className="relative flex flex-col justify-center m-auto w-full">
       {/* <div style={styles.coverBg}></div> */}
@@ -217,7 +210,7 @@ const WelcomeTemplate = (props: Iwelcome) => {
 
             <div style={styles.text1Box}>
               <div style={styles.text1}>Dear Sir/ Madam</div>
-              <div style={styles.text2}>Date: 05/11/2022</div>
+              <div style={styles.text2}>Date: {getCurrentDate()}</div>
             </div>
 
             <div style={styles.formBox}>
@@ -292,6 +285,9 @@ const WelcomeTemplate = (props: Iwelcome) => {
               <div>For Further Query</div>
               <div>Contact to Our Assistant: {props.filledBy}</div>
               <div>Contact No: +91-{props.agentContact}</div>
+              <br />
+              <br />
+              <br />
               <div style={styles.footerSignature}>
                 Signature of Lonee.........................
               </div>

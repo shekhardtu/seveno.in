@@ -45,10 +45,11 @@ const Contact = () => {
 
     // doc.addImage(imgData, 'PNG', 40, 40, 75, 75);
     doc.setTextColor(150);
-    doc.addImage(img, 'png', 250, 450, 320, 76, 'watermark', 'NONE', 20);
+    doc.addImage(img, 'png', 30, 550, 660, 152, 'watermark', 'NONE', 20);
 
     return doc;
   }
+
   const handleDownloadPdf = () => {
     // eslint-disable-next-line new-cap
     const doc = new jsPDF({
@@ -77,16 +78,17 @@ const Contact = () => {
           pdf.setPage(i);
 
           pdf.setFontSize(10);
-          // pdf.setTextColor(150);
+          pdf.setTextColor(150);
           pdf.text(
             `Page ${i} of ${totalPages}`,
             pdf.internal.pageSize.getWidth() - 100,
             pdf.internal.pageSize.getHeight() - 30
           );
-          pdf.addImage(img, 'png', 40, 0, 554, 182);
+
+          pdf.addImage(img, 'png', 50, 0, 554, 182);
           addWaterMark(pdf);
         }
-        pdf.save('JoiningLetter');
+        pdf.save('joiningLetter');
       },
     });
   };

@@ -396,6 +396,11 @@ const JoiningTemplate = (props: Iwelcome) => {
               <div className="text-indigo-600">
                 Contact No: +91-{props.agentContact}
               </div>
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
               <div style={styles.footerSignature}>
                 SIGNATURE AND THUMB IMPRESSION
               </div>
