@@ -15,6 +15,8 @@ const WelcomeTemplate = (props: Iwelcome) => {
   const router = useRouter();
   const styles = {
     container: {
+      letterSpacing: 'normal',
+      wordSpacing: '0.2rem',
       display: 'flex',
       justifyContent: 'center',
       alignContent: 'center',

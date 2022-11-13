@@ -17,7 +17,7 @@ const WelcomeTemplate = (props: Iwelcome) => {
   const styles = {
     container: {
       letterSpacing: 'normal',
-      wordSpacing: '0.1rem',
+      wordSpacing: '0.2rem',
       display: 'flex',
       justifyContent: 'center',
       alignContent: 'center',
@@ -58,9 +58,10 @@ const WelcomeTemplate = (props: Iwelcome) => {
       height: '100%',
     } as CSSProperties,
     h1Heading: {
-      color: '#5145cc',
+      color: '#8C3B38',
       fontSize: '20px',
       fontWeight: 'bold',
+      textDecoration: 'underline',
       textTransform: 'uppercase',
       padding: '15px',
       paddingTop: '0',
@@ -73,7 +74,7 @@ const WelcomeTemplate = (props: Iwelcome) => {
 
     text1Box: {
       display: 'flex',
-      color: '#5145cc',
+      color: '#8C3B38',
       fontWeight: 'bold',
       justifyContent: 'space-between',
       marginBottom: '10px',
@@ -82,14 +83,14 @@ const WelcomeTemplate = (props: Iwelcome) => {
 
     text1: {
       display: 'inline-block',
-      color: '#5145cc',
+      color: '#8C3B38',
       width: '140px',
       fontWeight: 'bold',
     } as CSSProperties,
 
     text2: {
       display: 'inline-block',
-      color: '#5145cc',
+      color: '#8C3B38',
       width: '140px',
       fontWeight: 'bold',
       textAlign: 'right',
@@ -136,7 +137,7 @@ const WelcomeTemplate = (props: Iwelcome) => {
       display: 'flex',
       fontSize: '16px',
       fontWeight: 'bold',
-      color: '#5145cc',
+      color: '#8C3B38',
       width: '100%',
       marginBottom: '10px',
     } as CSSProperties,

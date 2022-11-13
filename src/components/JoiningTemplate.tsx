@@ -22,6 +22,8 @@ const JoiningTemplate = (props: Iwelcome) => {
   const router = useRouter();
   const styles = {
     container: {
+      letterSpacing: 'normal',
+      wordSpacing: '0.1rem',
       display: 'flex',
       position: 'relative',
       // overflow: 'hidden',
@@ -32,7 +34,8 @@ const JoiningTemplate = (props: Iwelcome) => {
       fontSize: '12px',
 
       margin: '20px',
-      marginTop: '0',
+
+      marginTop: '-40px',
       width: '94%',
       position: 'relative',
       display: 'flex',
@@ -49,10 +52,11 @@ const JoiningTemplate = (props: Iwelcome) => {
       height: '100%',
     } as CSSProperties,
     h1Heading: {
-      color: '#5145cc',
+      color: '#8C3B38',
       fontSize: '20px',
       fontWeight: 'bold',
       textTransform: 'uppercase',
+      textDecoration: 'underline',
       padding: '15px',
       paddingTop: '0',
       width: '446px',
@@ -64,7 +68,7 @@ const JoiningTemplate = (props: Iwelcome) => {
 
     text1Box: {
       display: 'flex',
-      color: '#5145cc',
+      color: '#000',
       fontWeight: 'bold',
       justifyContent: 'flex-end',
       marginBottom: '10px',
@@ -73,7 +77,7 @@ const JoiningTemplate = (props: Iwelcome) => {
 
     text1: {
       display: 'inline-block',
-      color: '#5145cc',
+      color: '#000',
       width: '340px',
       fontWeight: 'bold',
       position: 'relative',
@@ -89,8 +93,8 @@ const JoiningTemplate = (props: Iwelcome) => {
     } as CSSProperties,
 
     formImg: {
-      maxWidth: '80px',
-      maxHeight: '90px',
+      maxWidth: '60px',
+      maxHeight: '70px',
       padding: '0',
       right: '0',
       top: '70px',
@@ -102,7 +106,7 @@ const JoiningTemplate = (props: Iwelcome) => {
       height: '50px',
       padding: '0',
       right: '-15px',
-      top: '140px',
+      top: '120px',
       position: 'absolute',
     } as CSSProperties,
 
@@ -112,7 +116,8 @@ const JoiningTemplate = (props: Iwelcome) => {
       padding: '20px',
       paddingTop: '0',
       justifyContent: 'space-between',
-      marginTop: '100px',
+      marginTop: '40px',
+      position: 'relative',
     } as CSSProperties,
     footerText: {
       display: 'flex',
@@ -122,6 +127,9 @@ const JoiningTemplate = (props: Iwelcome) => {
       display: 'block',
       height: '80px',
       padding: '5px',
+      position: 'absolute',
+      left: '40px',
+      top: '-60px',
     } as CSSProperties,
     footerSignature: {
       marginTop: '10px',
@@ -147,7 +155,7 @@ const JoiningTemplate = (props: Iwelcome) => {
       verticalAlign: 'bottom',
     } as CSSProperties,
     bold: {
-      color: '#5145cc',
+      color: '#8C3B38',
       display: 'contents',
       fontWeight: 700,
       verticalAlign: 'top',
@@ -190,7 +198,7 @@ const JoiningTemplate = (props: Iwelcome) => {
       <div style={styles.container}>
         <div style={styles.box}>
           <div style={styles.contentContainer}>
-            <div style={styles.h1Heading}> JOINING LETTER</div>
+            <div style={styles.h1Heading}>JOINING LETTER</div>
 
             <div style={styles.text1Box}>
               <div style={styles.text1}>
@@ -404,6 +412,13 @@ const JoiningTemplate = (props: Iwelcome) => {
               <div style={styles.footerSignature}>
                 SIGNATURE AND THUMB IMPRESSION
               </div>
+            </div>
+            <div>
+              <img
+                style={styles.footerImg}
+                alt="not found"
+                src={`${router.basePath}/assets/images/stamp.png`}
+              />
             </div>
           </div>
         </div>

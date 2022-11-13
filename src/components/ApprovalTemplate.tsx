@@ -92,7 +92,7 @@ const ApprovalTemplate = (props: IapprovalTemplate) => {
       maxHeight: '90px',
       padding: '0',
       right: '0',
-      top: '70px',
+      top: '10px',
       position: 'absolute',
     } as CSSProperties,
 
@@ -102,7 +102,7 @@ const ApprovalTemplate = (props: IapprovalTemplate) => {
       padding: '0',
       right: '-15px',
       zIndex: '9999',
-      top: '140px',
+      top: '60px',
       position: 'absolute',
     } as CSSProperties,
 
