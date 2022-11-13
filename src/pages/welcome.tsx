@@ -9,8 +9,9 @@ const Contact = () => {
   const router = useRouter();
   const printRef = useRef<any>(null);
 
-  const [applicantName, setApplicantName]: [any, any] = useState('Raju');
-  const [fatherName, setFatherName]: [any, any] = useState('Kumar');
+  const [applicantName, setApplicantName]: [any, any] =
+    useState('Raju Srivastav');
+  const [fatherName, setFatherName]: [any, any] = useState('Kumar Sharma');
 
   const [mobileNumber, setMobileNumber]: [any, any] = useState('8899832389');
   const [loanAmount, setLoanAmount]: [any, any] = useState('100000');

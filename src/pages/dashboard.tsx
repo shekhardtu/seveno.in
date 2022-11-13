@@ -23,7 +23,7 @@ const Dashboard = () => {
         </div>
         <div className="flex col-span-1 justify-center border-b border-r  border-gray-400 items-center p-8">
           {' '}
-          <Link href="/paylip">Payment Slip</Link>
+          <Link href="/payslip">Payment Slip</Link>
         </div>
         <div className="flex col-span-1 justify-center border-b border-r  border-gray-400 items-center p-8">
           <Link href="/"> Home</Link>
