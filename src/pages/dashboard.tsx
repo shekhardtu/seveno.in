@@ -9,6 +9,9 @@ const Dashboard = () => {
         <div className="flex col-span-1 justify-center items-center p-8 border-r border-b border-gray-400 ">
           <Link href="/welcome"> Welcome Letter</Link>
         </div>
+        <div className="flex col-span-1 justify-center items-center p-8 border-r border-b border-gray-400 ">
+          <Link href="/send-sms">Send SMS</Link>
+        </div>
         <div className="flex col-span-1 justify-center items-center border-r border-gray-400 p-8 border-b ">
           {' '}
           <Link href="/approval">Approval Letter</Link>
