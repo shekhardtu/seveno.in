@@ -12,6 +12,7 @@ const SendSms = () => {
   };
   const [mobileNumber, setMobileNumber]: [any, any] = useState();
   const [message, setMessage]: [any, any] = useState();
+  const [buttonText, setButtonText] = useState('Send');
 
   function sendSmsText(e: any): void {
     const baseUrl = 'https://sevenoin.herokuapp.com/api/v1/identifier/send-sms';
@@ -20,43 +21,9 @@ const SendSms = () => {
       message,
     };
 
-    axios.post(baseUrl, payload).then((response) => {
-      console.log(response.data);
+    axios.post(baseUrl, payload).then(() => {
+      setButtonText('Sent');
     });
-
-    // const data = new FormData();
-    // data.append('json', JSON.stringify(payload));
-
-    // fetch('http://localhost:8282/api/v1/identifier/send-sms', {
-    //   method: 'POST',
-    //   body: payload,
-    // })
-    //   .then(function (res) {
-    //     return res.json();
-    //   })
-    //   .then(function (err) {
-    //     alert(JSON.stringify(err));
-    //   });
-
-    // async () => {
-    //   const resp = await fetch(
-    //     'http://localhost:8282/api/v1/identifier/send-sms',
-    //     {
-    //       headers: {
-    //         Accept: 'application/json',
-    //         'Content-Type': 'application/json',
-    //       },
-    //       method: 'POST',
-    //       body: JSON.stringify({ mobileNumber: `+91${mobileNumber}`, message }),
-    //     }
-    //   )
-    //     .then(function (res) {
-    //       console.log(res);
-    //     })
-    //     .catch(function (res) {
-    //       console.log(res);
-    //     });
-    // };
 
     e.preventDefault();
   }
@@ -67,7 +34,7 @@ const SendSms = () => {
       <div className="flex justify-center p-20 relative">
         <div className="max-w-xl lg:max-w-3xl">
           <form action="#" className="mt-4 grid grid-cols-6 gap-6">
-            <div className="col-span-6">
+            <div className="col-span-10">
               <label
                 htmlFor="Subject"
                 className="block text-sm font-medium text-gray-700"
@@ -81,12 +48,15 @@ const SendSms = () => {
                 name="subject"
                 maxLength={10}
                 onKeyPress={onlyInteger}
-                onChange={(e) => setMobileNumber(e.target.value)}
+                onChange={(e) => {
+                  setButtonText('Send');
+                  setMobileNumber(e.target.value);
+                }}
                 className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
               />
             </div>
 
-            <div className="col-span-6">
+            <div className="col-span-10">
               <label
                 htmlFor="message"
                 className="block text-sm font-medium text-gray-700"
@@ -96,8 +66,11 @@ const SendSms = () => {
 
               <textarea
                 id="message"
-                onChange={(e) => setMessage(e.target.value)}
-                className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+                onChange={(e) => {
+                  setButtonText('Send');
+                  setMessage(e.target.value);
+                }}
+                className="h-20 mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
               ></textarea>
             </div>
 
@@ -106,8 +79,11 @@ const SendSms = () => {
                 onClick={sendSmsText}
                 className="inline-block shrink-0 rounded-md border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-blue-500"
               >
-                Send Message
+                {buttonText} Message
               </button>
+            </div>
+            <div className="col-span-6 sm:flex sm:items-center sm:gap-0 text-green-500 text-sm">
+              {buttonText === 'Sent' && 'Your message is sent'}
             </div>
           </form>
         </div>
