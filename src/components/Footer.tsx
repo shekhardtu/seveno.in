@@ -44,18 +44,56 @@ const Footer = () => {
   return (
     <footer aria-label="Site Footer" className="bg-white">
       <div className="mx-auto max-w-screen-xl px-4 pt-16 pb-6 sm:px-6 lg:px-8 lg:pt-24">
+        <div className='grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 text-sm pb-10' >
+          <div className='text-gray-500 lg:border-r-2 border-b-2 border-gray-500 pl-4 leading-6 '>
+          CIN<div className='text-gray-900 '>U65923OR1997PTC004893</div>
+          </div>
+          <div className='text-gray-500 lg:border-r-2 border-b-2 border-gray-500 pl-4 leading-6'>
+          REGISTRATION NUMBER<div className='text-gray-900'>004893</div>
+          </div>
+          <div className='text-gray-500 lg:border-r-2 border-b-2 border-gray-500 pl-4 leading-6'>
+          CLASS OF COMPANY<div className='text-gray-900'>PRIVATE</div>
+          </div>
+          <div className='text-gray-500 border-b-2 border-gray-500 pl-4'>
+          NUMBERS OF MEMBERS<div className='text-gray-900'>(APPLICABLE IN CLASS OF COMPANY WITHOUT SHARE) - 0</div>
+          </div>
+          <div className='text-gray-500 lg:border-r-2 border-b-2 border-gray-500 pl-4 leading-6 py-1 '>
+          COMPANY NAME<div className='text-gray-900 '>VAISHNO FINANCE PRIVATE LIMITED</div>
+          </div>
+          <div className='text-gray-500 lg:border-r-2 border-b-2 border-gray-500 pl-4 leading-6 py-1'>
+          COMPANY CATEGORY<div className='text-gray-900'>COMPANY LIMITED BY SHARES</div>
+          </div>
+          <div className='text-gray-500 lg:border-r-2 border-b-2 border-gray-500 pl-4 leading-6 py-1'>
+          AUTHORISED CAPITAL(RS)<div className='text-gray-900'>5000000</div>
+          </div>
+          <div className='text-gray-500 border-b-2 border-gray-500 pl-4 leading-6 py-1'>
+          DATE OF INCORPORATION<div className='text-gray-900'>11/04/1997</div>
+          </div>
+          <div className='text-gray-500 lg:border-r-2 border-b border-gray-500 pl-4 leading-6 py-1 '>
+          ROC CODE<div className='text-gray-900 '>ROC-CUTTACK</div>
+          </div>
+          <div className='text-gray-500 lg:border-r-2 border-b border-gray-500 pl-4 leading-6 py-1'>
+          COMPANY SUBCATEGORY<div className='text-gray-900'>NON-GOVT. COMPANY</div>
+          </div>
+          <div className='text-gray-500 lg:border-r-2 border-b border-gray-500 pl-4 leading-6 py-1'>
+          PAID UP CAPITAL(RS)<div className='text-gray-900'>20000</div>
+          </div>
+          <div className='text-gray-500 border-b border-gray-500 pl-4 leading-6 py-1'>
+          REGISTERED ADDRESS<div className='text-gray-900'>AT PLOT NO. 112, VAISHNO VILLASTYA NAGAR, BHUBAANESHWAR OR 751007 IN.</div>
+          </div>
+        </div>
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div>
             <div className="flex justify-center text-indigo-600 sm:justify-start">
               <img
-                src={`${router.basePath}/assets/images/logo2.png`}
+                src={`${router.basePath}/assets/images/company-logo.svg`}
                 alt="Nextjs starter banner"
-                className="w-80"
+                className="w-72 -ml-6 -mt-12"
               />
             </div>
 
             <p className="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500 sm:mx-0 sm:max-w-xs sm:text-left">
-              We Shree Vaishno Finance Services PVT LTD believe in fair dealing
+              We Vaishno Finance Services PVT LTD believe in fair dealing
               and prompt dispersement of founds on priority basis.
             </p>
 
@@ -342,7 +380,7 @@ const Footer = () => {
             </p>
 
             <p className="mt-4 text-sm text-gray-500 sm:order-first sm:mt-0">
-              &copy; 2022 SHREE VAISHNO FINANCE SERVICES PVT LTD
+              &copy; 2022 VAISHNO FINANCE SERVICES PVT LTD
             </p>
           </div>
         </div>
