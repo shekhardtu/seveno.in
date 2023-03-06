@@ -362,8 +362,9 @@ const Footer = () => {
                     />
                   </svg>
                   <address className="-mt-0.5 not-italic text-gray-700">
-                    217&#8218; 2nd Floor&#8218; DLF Building&#8218; IT
-                    Park&#8218; Chandigarh
+                    At Plot No. 112&#8218; Vaishno Villastya Nagar&#8218;
+                    Bhubaaneshwar or 751007 In. 217&#8218; 2nd Floor&#8218; DLF
+                    Building&#8218; IT Park&#8218; Chandigarh
                   </address>
                 </li>
               </ul>
