@@ -260,7 +260,7 @@ const WelcomeTemplate = (props: Iwelcome) => {
 
             <p style={styles.mainBox}>
               We have received your documents, these are appropriate docs
-              according to our legal adviser. Behalf of your documents by Shree
+              according to our legal adviser. Behalf of your documents by
               Vaishno Finance Services PVT LTD.
               <br />
               <br />

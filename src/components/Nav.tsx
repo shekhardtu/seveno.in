@@ -58,9 +58,9 @@ const Nav = () => {
               <Link href="/">
                 <div className="text-4xl font-bold capitalize text-gray-900 flex items-center">
                   <img
-                    src={`${router.basePath}/assets/images/logo2.png`}
+                    src={`${router.basePath}/assets/images/company-logo.svg`}
                     alt="Nextjs starter banner"
-                    className="w-80 m-2"
+                    className="w-72 -mt-7 -mb-1"
                   />
                 </div>
               </Link>
