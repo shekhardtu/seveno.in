@@ -90,7 +90,7 @@ const Footer = () => {
           REGISTERED ADDRESS
           <div className="text-gray-900">
             AT PLOT NO. 112&#8218; VAISHNO VILLASTYA NAGAR&#8218; BHUBAANESHWAR
-            OR 751007 IN.
+            - 751007
           </div>
         </div>
       </div>
@@ -100,9 +100,9 @@ const Footer = () => {
           <div>
             <div className="flex justify-center text-indigo-600 sm:justify-start">
               <img
-                src={`${router.basePath}/assets/images/company-logo.svg`}
+                src={`${router.basePath}/assets/images/logo.png`}
                 alt="Nextjs starter banner"
-                className="w-72 -ml-6 -mt-12"
+                className="w-80"
               />
             </div>
 
@@ -363,7 +363,7 @@ const Footer = () => {
                   </svg>
                   <address className="-mt-0.5 not-italic text-gray-700">
                     At Plot No&#8228; 112&sbquo; Vaishno Villastya Nagar&sbquo;
-                    Bhubaaneshwar or 751007 In&#8228;
+                    Bhubaaneshwar - 751007&#8228;
                   </address>
                 </li>
               </ul>
