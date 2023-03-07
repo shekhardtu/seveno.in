@@ -100,9 +100,9 @@ const Footer = () => {
           <div>
             <div className="flex justify-center text-indigo-600 sm:justify-start">
               <img
-                src={`${router.basePath}/assets/images/company-logo.svg`}
+                src={`${router.basePath}/assets/images/logo.png`}
                 alt="Nextjs starter banner"
-                className="w-72 -ml-6 -mt-12"
+                className="w-80"
               />
             </div>
 
