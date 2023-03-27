@@ -102,7 +102,7 @@ const Footer = () => {
               <img
                 src={`${router.basePath}/assets/images/logo.png`}
                 alt="Nextjs starter banner"
-                className="w-80"
+                className="w-72 -ml-6 -mt-12"
               />
             </div>
 
