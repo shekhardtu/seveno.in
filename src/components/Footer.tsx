@@ -100,11 +100,7 @@ const Footer = () => {
           <div>
             <div className="flex justify-center text-indigo-600 sm:justify-start">
               <img
-<<<<<<< HEAD
-                src={`${router.basePath}/assets/images/company-logo.svg`}
-=======
                 src={`${router.basePath}/assets/images/logo.png`}
->>>>>>> ab6df37952558779249fa56eab0b25adc5a734d8
                 alt="Nextjs starter banner"
                 className="w-72 -ml-6 -mt-12"
               />
@@ -366,13 +362,8 @@ const Footer = () => {
                     />
                   </svg>
                   <address className="-mt-0.5 not-italic text-gray-700">
-<<<<<<< HEAD
-                    217&#8218; 2nd Floor&#8218; DLF Building&#8218; IT
-                    Park&#8218; Chandigarh
-=======
                     At Plot No&#8228; 112&sbquo; Vaishno Villastya Nagar&sbquo;
                     Bhubaaneshwar - 751007&#8228;
->>>>>>> ab6df37952558779249fa56eab0b25adc5a734d8
                   </address>
                 </li>
               </ul>
