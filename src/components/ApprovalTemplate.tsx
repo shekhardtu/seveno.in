@@ -250,8 +250,8 @@ const ApprovalTemplate = (props: IapprovalTemplate) => {
                 Mr./Mrs./Ms. {props.applicantName}
                 <br />
                 {props.mobileNumber} <br />
-                Ref: Your account for loan from Shree Vaishno Finance Services
-                Pvt Ltd <br />
+                Ref: Your account for loan from Vaishno Finance Services Pvt Ltd{' '}
+                <br />
                 CFN: {props.codeNumber}
                 <br />
                 Date : {getCurrentDate()}
@@ -277,8 +277,8 @@ const ApprovalTemplate = (props: IapprovalTemplate) => {
             <div style={styles.mainBox}>
               Based on your Application no.{' '}
               <div style={styles.bold}>{props.codeNumber} </div>acting under the
-              constitution of Shree Vaishno Finance Services Pvt Ltd is pleased
-              to provide provisional sanction the loan request submitted by
+              constitution of Vaishno Finance Services Pvt Ltd is pleased to
+              provide provisional sanction the loan request submitted by
               Mr./Mrs./Ms. <div style={styles.bold}>{props.applicantName}</div>{' '}
               accepting the terms and conditions for the progress of loan. This
               is in subject to the execution of loan agreement and the other
@@ -406,7 +406,7 @@ const ApprovalTemplate = (props: IapprovalTemplate) => {
               fees of{' '}
               <div style={styles.bold}>
                 1500/- (18.00% Gst Tax Of Agreement Fees) by Bank Demand Draft
-                (D.D) in favor of Shree Vaishno Finance Services Pvt Ltd{' '}
+                (D.D) in favor of Vaishno Finance Services Pvt Ltd{' '}
               </div>
               for issuing advisory report and to meet other expenses, along with
               required reports as per company terms & conditions Mentioned at
@@ -546,7 +546,7 @@ const ApprovalTemplate = (props: IapprovalTemplate) => {
                 <br />
                 <br />
                 <div style={styles.termsTitle}>
-                  Important Notice of Shree Vaishno Finance Services PVT LTD
+                  Important Notice of Vaishno Finance Services PVT LTD
                 </div>
               </div>
             </div>

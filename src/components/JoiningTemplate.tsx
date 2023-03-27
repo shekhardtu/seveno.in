@@ -235,7 +235,7 @@ const JoiningTemplate = (props: Iwelcome) => {
             <div style={styles.mainBox}>
               We are pleased to appoint you in our organization as
               <span style={styles.bold}> {props.post} </span>
-              AGENT GRADE: Shree Vaishno Finance Services PVT LTD w.e.f.
+              AGENT GRADE: Vaishno Finance Services PVT LTD w.e.f.
               <div style={styles.bold}>{getCurrentDate()} </div>on the Following
               Terms & Conditions:
               <div style={styles.termsList}>
@@ -396,7 +396,7 @@ const JoiningTemplate = (props: Iwelcome) => {
             <div style={styles.footerText}>
               <div className="font-bold">Authorized Signatory</div>
               <div className="font-bold mb-8">
-                Shree Vaishno Finance Services PVT LTD
+                Vaishno Finance Services PVT LTD
               </div>
               <div className="text-indigo-600">
                 Working Under: {props.filledBy}

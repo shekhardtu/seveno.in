@@ -202,7 +202,7 @@ const Contact = () => {
                     backgroundImage: `url(${router.basePath}/assets/images/icard-bg.png)`,
                   }}
                 >
-                  <div className="h-1/5 relative border-b border-gray-500 m-3 pb-3">
+                  <div className="h-1/5 relative m-3 pb-3">
                     <img
                       src={`${router.basePath}/assets/images/logo.png`}
                       alt=""
